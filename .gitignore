@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Machine-local runtime state, deliberately absent from source control.
+skills.sqlite3
+events.jsonl
+feedback.jsonl
+*.sqlite3.tmp

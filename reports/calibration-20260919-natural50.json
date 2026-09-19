@@ -1,0 +1,1758 @@
+{
+  "generated_utc": "2026-09-19T03:24:56Z",
+  "input_summary": {
+    "selected_prompt_count": 50,
+    "stored_prompt_entries": 472,
+    "thread_histories": 64,
+    "unique_natural_latest_available": 50
+  },
+  "privacy": {
+    "event_log_written": false,
+    "matched_terms_persisted": false,
+    "network_calls": 0,
+    "prompt_representation": "sha256",
+    "raw_prompts_persisted": false
+  },
+  "recommendation": {
+    "action": "file_follow_up",
+    "change_thresholds_globally": false,
+    "reason": "The observational sample had no obvious conversational false positives and acceptable latency, but both detected explicit skill invocations missed the requested skill. Add a local exact-invocation resolver before probabilistic ranking."
+  },
+  "results": {
+    "all_candidate_counts": [
+      [
+        "last30days",
+        5
+      ],
+      [
+        "Zettel Reflect",
+        3
+      ],
+      [
+        "sites-building",
+        3
+      ],
+      [
+        "Presentations",
+        3
+      ],
+      [
+        "build-chatgpt-app",
+        3
+      ],
+      [
+        "codex-computer-use",
+        2
+      ],
+      [
+        "llama-cpp-256k-context-24gb-vram",
+        2
+      ],
+      [
+        "flow-gen",
+        2
+      ],
+      [
+        "codex-router",
+        2
+      ],
+      [
+        "monetization-strategy",
+        2
+      ],
+      [
+        "pptx",
+        2
+      ],
+      [
+        "workflow-ship-faster",
+        2
+      ],
+      [
+        "codex-subagent",
+        2
+      ],
+      [
+        "supabase-magic-link-hash-fragment",
+        1
+      ],
+      [
+        "x-article-draftjs-publishing",
+        1
+      ],
+      [
+        "agent-browser",
+        1
+      ],
+      [
+        "orchestrator",
+        1
+      ],
+      [
+        "grammar-check",
+        1
+      ],
+      [
+        "self-sustaining-pipeline-gates",
+        1
+      ],
+      [
+        "letta-text-tool-call-extraction",
+        1
+      ],
+      [
+        "zhipu-osa-daemon-glm-jwt-streaming",
+        1
+      ],
+      [
+        "tailwind-v4-scaffold-mismatch",
+        1
+      ],
+      [
+        "moshi-text-prompt-content-delivery",
+        1
+      ],
+      [
+        "ollama-tool-calling-models",
+        1
+      ],
+      [
+        "ollama-local",
+        1
+      ],
+      [
+        "vlt",
+        1
+      ],
+      [
+        "sites-hosting",
+        1
+      ],
+      [
+        "documents",
+        1
+      ],
+      [
+        "moltworker-cloudflare-deployment",
+        1
+      ],
+      [
+        "resend-email-forensics",
+        1
+      ],
+      [
+        "wreckit-direct-merge-recovery",
+        1
+      ],
+      [
+        "pvg",
+        1
+      ],
+      [
+        "marketing-ideas",
+        1
+      ],
+      [
+        "brand-guidelines",
+        1
+      ],
+      [
+        "openai-api-troubleshooting",
+        1
+      ],
+      [
+        "sgflix-audio-factory-acestep",
+        1
+      ],
+      [
+        "personaplex-moshi-connection",
+        1
+      ],
+      [
+        "ansoff-matrix",
+        1
+      ],
+      [
+        "plugin-creator",
+        1
+      ],
+      [
+        "source-command-business-model",
+        1
+      ],
+      [
+        "source-command-analyze-test",
+        1
+      ],
+      [
+        "spec-kit-workflow",
+        1
+      ],
+      [
+        "prisma-connection-pool-exhaustion",
+        1
+      ],
+      [
+        "taste-skill",
+        1
+      ],
+      [
+        "design-taste-frontend",
+        1
+      ],
+      [
+        "skill-creator",
+        1
+      ],
+      [
+        "openclaw-discord-file-upload",
+        1
+      ],
+      [
+        "skill-improver",
+        1
+      ],
+      [
+        "template-creator",
+        1
+      ],
+      [
+        "supabase-postgres-best-practices",
+        1
+      ],
+      [
+        "identify-assumptions-new",
+        1
+      ],
+      [
+        "vercel-react-best-practices",
+        1
+      ],
+      [
+        "ssh-remote-code-writing-shell-escaping",
+        1
+      ],
+      [
+        "sprite-vm-tar-null-byte-corruption",
+        1
+      ],
+      [
+        "letta-native-tool-call-double-write",
+        1
+      ],
+      [
+        "bun-binary-reverse-engineering",
+        1
+      ],
+      [
+        "excel-live-control",
+        1
+      ],
+      [
+        "tool-systematic-debugging",
+        1
+      ],
+      [
+        "source-command-transform-roadmap",
+        1
+      ],
+      [
+        "remote-code-archeology",
+        1
+      ],
+      [
+        "skill-evolution",
+        1
+      ],
+      [
+        "doc-coauthoring",
+        1
+      ],
+      [
+        "openai-docs",
+        1
+      ],
+      [
+        "beachhead-segment",
+        1
+      ],
+      [
+        "chrome-cdp-profile-copy",
+        1
+      ],
+      [
+        "jay-profile-cdp",
+        1
+      ],
+      [
+        "figma-generate-diagram",
+        1
+      ],
+      [
+        "canvas-design",
+        1
+      ],
+      [
+        "algorithmic-art",
+        1
+      ],
+      [
+        "voxtral-tool-calling-pipeline",
+        1
+      ],
+      [
+        "figma-use-slides",
+        1
+      ],
+      [
+        "vsm-architectural-diagnosis",
+        1
+      ]
+    ],
+    "conversational": {
+      "false_positive_suggestions": 0,
+      "total": 2
+    },
+    "decision_counts": {
+      "abstain": 15,
+      "suggest": 35
+    },
+    "explicit_skill_invocation": {
+      "top1": 0,
+      "top1_rate": 0.0,
+      "top3": 0,
+      "top3_rate": 0.0,
+      "total": 2
+    },
+    "latency_ms": {
+      "maximum": 72.31,
+      "median": 3.057,
+      "minimum": 0.002,
+      "p95": 44.278
+    },
+    "literal_skill_name_reference": {
+      "caveat": "A literal name may be ordinary prompt language; this is not true invocation accuracy.",
+      "top1": 1,
+      "top1_rate": 0.1429,
+      "top3": 1,
+      "top3_rate": 0.1429,
+      "total": 7
+    },
+    "natural_review_count": 41,
+    "needs_review_prompt_hashes": [
+      "bfd8e84258787fc03af0564ed49ecab758495c194c74a4ad0a17a8600716ce58",
+      "435e6865dfe33626b69264a07f547925e8a165e84139cf43a40354be31052591",
+      "8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
+      "d63b02dcc3fc1c5e1a35a598346e39d383a6908a9e147cab9f9e31da0dae7acc",
+      "5a9583c2f362fb459e0d1a66d7f2190f3eb58670e4114ba7d8f9eb48bf1da5db",
+      "3e14e17e79b76b17ac55aad011c28b0b15d3ddf06d627565089bfaf2b15f01f9",
+      "986e784054bd8cc8c3535aa98ce1073eb38146cc1354edba55c4264b6eb5a413",
+      "70451290eb6730ed2942c4fa333a645e53931e3e8d1fc48b47e6f5224767f8e2",
+      "03b9f89ff157ae74df8eae44f157c8fb5d59b0ae6cb0b0fb156b48a268fe0542",
+      "1947a6d23872164c9d1f64d18a6d50157dab100e0ef8af71066f395a02de2422",
+      "b2572a3f6ed0acafa4c261b53068fa0afecb8cafd26d6608872230808e2474b9",
+      "749ab2c0d06c42ae3b841b79e79875f02b3a042e43c92378cd28bd444c04d284",
+      "8dffb5caa33ca594c0a8f7e89f5173fb6291b7b468f7284963f166533ca84ac6",
+      "55a010b99a795ff9e5fc822664f07b9f3abc691d7b23073ec4092d47433ab54a",
+      "ebc8c2d3633b986cbffc74aaf560c89c5ca198b821533d820c95731a2da9f48f",
+      "f3621c95f7c61da952223be5482209a05c360f06ea6c01483b04bf90e5dd7b36",
+      "c35caf898561edd00c38786145eed092aad500e23950a39f48d4850e6f7d1845",
+      "56a53efad8641ed6f0ddffca716c5d4ab3e895463ac43d3f37771e572cde829d",
+      "2fde616a297b67c297bdfd1485cba7e4e2384b23b0a9d2f51b4dc75d088bb940",
+      "66ccc11e37d70700f00aff18914193f8e6eb8aba7e9a108d351e7a7907fff278",
+      "bef186482902f8edd302a291bd603baab17f17ffb228856b50a2243dde0aa261",
+      "2f761a44b265fce30779f73198098eef6a7ddd915a4b2831ab4599d0e55b165d",
+      "aa45e50e2419fd18896420cbcc09fcdfe41f86b5db0cdb5407d480b368f71775",
+      "1b6383756d751a11ee9a38fe6cf212995e390c8ae69c16e8eb8e17d3c43fdd3b",
+      "348a89a78e9a3a93bfa91551799148f66e7a62e14d170fc2b5b0bcfe037bf883",
+      "13953da2d9494f5bdf5e8dfe81d0038877d1b9409d6a28fbb525eda489f85ff7",
+      "bb3c5adf37b550479608686b803d5656c3ea94f22188169c88faf4e38cb91b47",
+      "dc20a68c593ba1b8d5a4dfdda7cf6c733d08da5b41511b9516acb852bb26f096",
+      "5beec34baa88527c4e77abd50e33715689912253533ce17a89969ee4c4175099",
+      "6e9d1e9cadf84883e352ae56f5f0ea81089d751a4a68efc9be48433c34133574",
+      "5cc7a740803cbedf5c842bd791c4615275ca2a94c446e61fb39d3d2ddafddcb6",
+      "dc7c3875eef26753d9f849330f2f4c49f210127996d7162673ce7de03e042398",
+      "f307f9d55d22df0b03531917f80f96dffdf78b11b736f030d1f2956135cf8ddc",
+      "3734da5af87e6de47a097753e6fc06c0c8e82d7c35545d3135e683e47683c3f0",
+      "037ec63c7f2bd6f7099d64047a151d99c5dcc3437fc90bd4c507de218fe745e7",
+      "7f76c3f718abb83e675e865bb34f93a839e17b11b27b6082c4b34b05919236df",
+      "db3a3bb3342b2a1b58250d778b0d26f7b9cb1f1e2619643e480ce0e3d536817d",
+      "28d13234f90df57f5505c90963a2e0310f1b04cd2f45214698a023c6b36b96d9",
+      "b6ee0ab46a4cf7df56bf09811bbe9909fc1aa78c42ad26fa54bdb073820be7e0",
+      "12b86f1da6c76eddcdbcd44105c70b4da7ad265ec3d6a9db54e01df0d635ceba",
+      "9b45cfbc4cf6148b719eda883e1764c24c353522f0b1d3f17a46605e77a004ae"
+    ],
+    "top_candidate_counts": [
+      [
+        "last30days",
+        3
+      ],
+      [
+        "Zettel Reflect",
+        2
+      ],
+      [
+        "codex-computer-use",
+        2
+      ],
+      [
+        "monetization-strategy",
+        2
+      ],
+      [
+        "supabase-magic-link-hash-fragment",
+        1
+      ],
+      [
+        "grammar-check",
+        1
+      ],
+      [
+        "zhipu-osa-daemon-glm-jwt-streaming",
+        1
+      ],
+      [
+        "ollama-tool-calling-models",
+        1
+      ],
+      [
+        "vlt",
+        1
+      ],
+      [
+        "sites-building",
+        1
+      ],
+      [
+        "Presentations",
+        1
+      ],
+      [
+        "resend-email-forensics",
+        1
+      ],
+      [
+        "marketing-ideas",
+        1
+      ],
+      [
+        "llama-cpp-256k-context-24gb-vram",
+        1
+      ],
+      [
+        "flow-gen",
+        1
+      ],
+      [
+        "source-command-business-model",
+        1
+      ],
+      [
+        "taste-skill",
+        1
+      ],
+      [
+        "skill-creator",
+        1
+      ],
+      [
+        "skill-improver",
+        1
+      ],
+      [
+        "supabase-postgres-best-practices",
+        1
+      ],
+      [
+        "ssh-remote-code-writing-shell-escaping",
+        1
+      ],
+      [
+        "bun-binary-reverse-engineering",
+        1
+      ],
+      [
+        "tool-systematic-debugging",
+        1
+      ],
+      [
+        "remote-code-archeology",
+        1
+      ],
+      [
+        "codex-subagent",
+        1
+      ],
+      [
+        "build-chatgpt-app",
+        1
+      ],
+      [
+        "codex-router",
+        1
+      ],
+      [
+        "chrome-cdp-profile-copy",
+        1
+      ],
+      [
+        "figma-generate-diagram",
+        1
+      ],
+      [
+        "voxtral-tool-calling-pipeline",
+        1
+      ]
+    ]
+  },
+  "rows": [
+    {
+      "candidates": [
+        {
+          "name": "supabase-magic-link-hash-fragment",
+          "path": "/Users/speed/.agents/skills/supabase-magic-link-hash-fragment/SKILL.md",
+          "score": 0.86
+        },
+        {
+          "name": "x-article-draftjs-publishing",
+          "path": "/Users/speed/.agents/skills/x-article-draftjs-publishing/SKILL.md",
+          "score": 0.824
+        },
+        {
+          "name": "agent-browser",
+          "path": "/Users/speed/.agents/skills/agent-browser/SKILL.md",
+          "score": 0.8236
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 2.844,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 1,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "bfd8e84258787fc03af0564ed49ecab758495c194c74a4ad0a17a8600716ce58",
+      "source_thread_hash": "252521734f91259cc8ece170fa5e67ad46a35e4283c37bc6b6553dd0d29ee0d0"
+    },
+    {
+      "candidates": [],
+      "classification": "natural_review",
+      "decision": "abstain",
+      "duration_ms": 0.271,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 2,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "435e6865dfe33626b69264a07f547925e8a165e84139cf43a40354be31052591",
+      "source_thread_hash": "25164fbfc09b2b34fd22afafa2a1fea40c0ef0b111daf3b61ea2fe041b65a569"
+    },
+    {
+      "candidates": [],
+      "classification": "natural_review",
+      "decision": "abstain",
+      "duration_ms": 0.004,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 3,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
+      "source_thread_hash": "c3f1281731ddf4ec49c0adab470b92cfe794357218d748b36420d0cfcc971bf2"
+    },
+    {
+      "candidates": [
+        {
+          "name": "Zettel Reflect",
+          "path": "/Users/speed/.codex/skills/zettel-reflect/SKILL.md",
+          "score": 0.7367
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 2.904,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 4,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "d63b02dcc3fc1c5e1a35a598346e39d383a6908a9e147cab9f9e31da0dae7acc",
+      "source_thread_hash": "9c15dd7f659c07c706f190285aafb0a673212b8ca3123bb1c8c524e4ba82fed8"
+    },
+    {
+      "candidates": [
+        {
+          "name": "last30days",
+          "path": "/Users/speed/.codex/skills/last30days-skill/SKILL.md",
+          "score": 0.7124
+        },
+        {
+          "name": "orchestrator",
+          "path": "/Users/speed/.codex/skills/orchestrator/SKILL.md",
+          "score": 0.5677
+        },
+        {
+          "name": "Zettel Reflect",
+          "path": "/Users/speed/.codex/skills/zettel-reflect/SKILL.md",
+          "score": 0.5534
+        }
+      ],
+      "classification": "explicit_skill",
+      "decision": "suggest",
+      "duration_ms": 36.904,
+      "explicit_expected_skill": "agents",
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 5,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "eda05e23190596c644bc23fa037cce3a874be99ac4d298d415282e2e2020e888",
+      "source_thread_hash": "3c9da3e234ec06f2bfc796305d7c5cbd412203157d48b88a17c5aa829c632927"
+    },
+    {
+      "candidates": [
+        {
+          "name": "grammar-check",
+          "path": "/Users/speed/.agents/skills/grammar-check/SKILL.md",
+          "score": 0.579
+        },
+        {
+          "name": "self-sustaining-pipeline-gates",
+          "path": "/Users/speed/.agents/skills/self-sustaining-pipeline-gates/SKILL.md",
+          "score": 0.4306
+        },
+        {
+          "name": "letta-text-tool-call-extraction",
+          "path": "/Users/speed/.agents/skills/letta-text-tool-call-extraction/SKILL.md",
+          "score": 0.43
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 2.657,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 6,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "5a9583c2f362fb459e0d1a66d7f2190f3eb58670e4114ba7d8f9eb48bf1da5db",
+      "source_thread_hash": "aaf9d4aa46083db3533cc4037069c187d0d3e023ecd58838efecfac63e4d2f66"
+    },
+    {
+      "candidates": [
+        {
+          "name": "codex-computer-use",
+          "path": "/Users/speed/.codex/skills/codex-computer-use/SKILL.md",
+          "score": 0.92
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 3.471,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 7,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "3e14e17e79b76b17ac55aad011c28b0b15d3ddf06d627565089bfaf2b15f01f9",
+      "source_thread_hash": "9e2c1bc02afe74083d6acb4b8208dd267d5f2df40a389300e618d17ac7dfbc40"
+    },
+    {
+      "candidates": [],
+      "classification": "explicit_skill",
+      "decision": "abstain",
+      "duration_ms": 50.311,
+      "explicit_expected_skill": "github",
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 8,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "f067802e71b7a8abf37d9f5f59b02a7e2f45a57a1dd9fa94b80cf15f613ddcd0",
+      "source_thread_hash": "6e0c561e503de04c53ce84fdd81e9e9d0cc2aed62c9a7d276317ba2673e82c8b"
+    },
+    {
+      "candidates": [
+        {
+          "name": "zhipu-osa-daemon-glm-jwt-streaming",
+          "path": "/Users/speed/.agents/skills/zhipu-osa-daemon-glm-jwt-streaming/SKILL.md",
+          "score": 0.6842
+        },
+        {
+          "name": "llama-cpp-256k-context-24gb-vram",
+          "path": "/Users/speed/.agents/skills/llama-cpp-256k-context-24gb-vram/SKILL.md",
+          "score": 0.6789
+        },
+        {
+          "name": "tailwind-v4-scaffold-mismatch",
+          "path": "/Users/speed/.agents/skills/tailwind-v4-scaffold-mismatch/SKILL.md",
+          "score": 0.6415
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 5.303,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 9,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "986e784054bd8cc8c3535aa98ce1073eb38146cc1354edba55c4264b6eb5a413",
+      "source_thread_hash": "07910ddf3e0c44b6a286af74bb0c6fe8a31f8f4b65b3212d2766d36a884e8253"
+    },
+    {
+      "candidates": [
+        {
+          "name": "last30days",
+          "path": "/Users/speed/.codex/skills/last30days-skill/SKILL.md",
+          "score": 0.8431
+        },
+        {
+          "name": "moshi-text-prompt-content-delivery",
+          "path": "/Users/speed/.agents/skills/moshi-text-prompt-content-delivery/SKILL.md",
+          "score": 0.6917
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 3.849,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 10,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "70451290eb6730ed2942c4fa333a645e53931e3e8d1fc48b47e6f5224767f8e2",
+      "source_thread_hash": "4455534c0d072260ca663c9cb958d95258171e8d9b46402f8779ea411a5abccf"
+    },
+    {
+      "candidates": [
+        {
+          "name": "ollama-tool-calling-models",
+          "path": "/Users/speed/.agents/skills/ollama-tool-calling-models/SKILL.md",
+          "score": 0.91
+        },
+        {
+          "name": "ollama-local",
+          "path": "/Users/speed/.agents/skills/ollama-local/SKILL.md",
+          "score": 0.8972
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 0.567,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 11,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "03b9f89ff157ae74df8eae44f157c8fb5d59b0ae6cb0b0fb156b48a268fe0542",
+      "source_thread_hash": "b13a16ced43f5ed2796a4dd782df2a3ab7704efc8065714149fa38350bdee339"
+    },
+    {
+      "candidates": [],
+      "classification": "natural_review",
+      "decision": "abstain",
+      "duration_ms": 0.207,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 12,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "1947a6d23872164c9d1f64d18a6d50157dab100e0ef8af71066f395a02de2422",
+      "source_thread_hash": "48963109e9193b0b6e5e806bb5e44706d0e028b382fc2022821032d43c39d02c"
+    },
+    {
+      "candidates": [],
+      "classification": "natural_review",
+      "decision": "abstain",
+      "duration_ms": 0.342,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 13,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "b2572a3f6ed0acafa4c261b53068fa0afecb8cafd26d6608872230808e2474b9",
+      "source_thread_hash": "6f6cd4b915191c7ea1608c4855bcf5c826fda9dd25bf0d1e5aa6873b5399bbde"
+    },
+    {
+      "candidates": [],
+      "classification": "natural_review",
+      "decision": "abstain",
+      "duration_ms": 0.003,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 14,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "749ab2c0d06c42ae3b841b79e79875f02b3a042e43c92378cd28bd444c04d284",
+      "source_thread_hash": "20cabf537dbe94578eea0d1cec51a764d962befecf8472f73daf914190fbcea9"
+    },
+    {
+      "candidates": [
+        {
+          "name": "vlt",
+          "path": "/Users/speed/.codex/skills/vlt/SKILL.md",
+          "score": 0.88
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 2.969,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 15,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "8dffb5caa33ca594c0a8f7e89f5173fb6291b7b468f7284963f166533ca84ac6",
+      "source_thread_hash": "3c0ea716ca2581c89f5b3f0a3986bf7ee916cf887f6cbee13e6b7691e1c553ae"
+    },
+    {
+      "candidates": [],
+      "classification": "conversational",
+      "decision": "abstain",
+      "duration_ms": 0.002,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 16,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "2689367b205c16ce32ed4200942b8b8b1e262dfc70d9bc9fbc77c49699a4f1df",
+      "source_thread_hash": "a9e39e23bb6eeef240b3a5a18404967deb422995d778018fc04560fb2d545b29"
+    },
+    {
+      "candidates": [
+        {
+          "name": "sites-building",
+          "path": "/Users/speed/.codex/plugins/cache/openai-curated-remote/sites/0.1.65/skills/sites-building/SKILL.md",
+          "score": 0.6969
+        },
+        {
+          "name": "sites-hosting",
+          "path": "/Users/speed/.codex/plugins/cache/openai-curated-remote/sites/0.1.65/skills/sites-hosting/SKILL.md",
+          "score": 0.6277
+        },
+        {
+          "name": "flow-gen",
+          "path": "/Users/speed/.agents/skills/flow-gen/SKILL.md",
+          "score": 0.6178
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 15.222,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 17,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "55a010b99a795ff9e5fc822664f07b9f3abc691d7b23073ec4092d47433ab54a",
+      "source_thread_hash": "aac52bd57a13bd2b97f597dfe4d52486597d9de4365b238e5bd79c72564f3ae8"
+    },
+    {
+      "candidates": [
+        {
+          "name": "codex-computer-use",
+          "path": "/Users/speed/.codex/skills/codex-computer-use/SKILL.md",
+          "score": 0.7162
+        },
+        {
+          "name": "documents",
+          "path": "/Users/speed/.codex/plugins/cache/openai-primary-runtime/documents/26.909.61513/skills/documents/SKILL.md",
+          "score": 0.6998
+        },
+        {
+          "name": "codex-router",
+          "path": "/Users/speed/.codex/skills/codex-router/SKILL.md",
+          "score": 0.683
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 10.848,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 18,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "ebc8c2d3633b986cbffc74aaf560c89c5ca198b821533d820c95731a2da9f48f",
+      "source_thread_hash": "53f9916a876af006ecc7f2f954c99929ab2eebe6ac5c900720916118d357216f"
+    },
+    {
+      "candidates": [
+        {
+          "name": "Presentations",
+          "path": "/Users/speed/.codex/plugins/cache/openai-primary-runtime/presentations/26.909.61513/skills/presentations/SKILL.md",
+          "score": 0.7546
+        },
+        {
+          "name": "moltworker-cloudflare-deployment",
+          "path": "/Users/speed/.agents/skills/moltworker-cloudflare-deployment/SKILL.md",
+          "score": 0.726
+        },
+        {
+          "name": "sites-building",
+          "path": "/Users/speed/.codex/plugins/cache/openai-curated-remote/sites/0.1.65/skills/sites-building/SKILL.md",
+          "score": 0.7099
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 3.935,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 19,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "f3621c95f7c61da952223be5482209a05c360f06ea6c01483b04bf90e5dd7b36",
+      "source_thread_hash": "72769b38cbe0ff7095b9c1648866583f34154c1c1e33ceb45154ee377b8e835f"
+    },
+    {
+      "candidates": [
+        {
+          "name": "resend-email-forensics",
+          "path": "/Users/speed/.agents/skills/resend-email-forensics/SKILL.md",
+          "score": 0.75
+        },
+        {
+          "name": "wreckit-direct-merge-recovery",
+          "path": "/Users/speed/.agents/skills/wreckit-direct-merge-recovery/SKILL.md",
+          "score": 0.7148
+        },
+        {
+          "name": "pvg",
+          "path": "/Users/speed/.codex/skills/pvg/SKILL.md",
+          "score": 0.6989
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 1.003,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 20,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "c35caf898561edd00c38786145eed092aad500e23950a39f48d4850e6f7d1845",
+      "source_thread_hash": "22f7389285f848d40bbcd15b66fbc30bc5bda7155c92baa7284267c5c162a950"
+    },
+    {
+      "candidates": [
+        {
+          "name": "marketing-ideas",
+          "path": "/Users/speed/.agents/skills/marketing-ideas/SKILL.md",
+          "score": 0.685
+        },
+        {
+          "name": "brand-guidelines",
+          "path": "/Users/speed/.agents/skills/brand-guidelines/SKILL.md",
+          "score": 0.683
+        },
+        {
+          "name": "openai-api-troubleshooting",
+          "path": "/Users/speed/.codex/plugins/cache/openai-curated-remote/openai-developers/1.3.0/skills/openai-api-troubleshooting/SKILL.md",
+          "score": 0.6763
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 2.6,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 21,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "56a53efad8641ed6f0ddffca716c5d4ab3e895463ac43d3f37771e572cde829d",
+      "source_thread_hash": "fcb48decf0e9fd7a38a403e231df77832f08554f9c14bf03816e2b93de6e0a86"
+    },
+    {
+      "candidates": [
+        {
+          "name": "llama-cpp-256k-context-24gb-vram",
+          "path": "/Users/speed/.agents/skills/llama-cpp-256k-context-24gb-vram/SKILL.md",
+          "score": 0.8046
+        },
+        {
+          "name": "sgflix-audio-factory-acestep",
+          "path": "/Users/speed/.agents/skills/sgflix-audio-factory-acestep/SKILL.md",
+          "score": 0.7932
+        },
+        {
+          "name": "personaplex-moshi-connection",
+          "path": "/Users/speed/.agents/skills/personaplex-moshi-connection/SKILL.md",
+          "score": 0.7452
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 2.489,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 22,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "2fde616a297b67c297bdfd1485cba7e4e2384b23b0a9d2f51b4dc75d088bb940",
+      "source_thread_hash": "a34d9cfa103dc69c2bb372d762bf1b799b6010332c138b924caa291c77071c72"
+    },
+    {
+      "candidates": [
+        {
+          "name": "flow-gen",
+          "path": "/Users/speed/.agents/skills/flow-gen/SKILL.md",
+          "score": 0.6787
+        },
+        {
+          "name": "ansoff-matrix",
+          "path": "/Users/speed/.agents/skills/ansoff-matrix/SKILL.md",
+          "score": 0.6628
+        },
+        {
+          "name": "plugin-creator",
+          "path": "/Users/speed/.codex/skills/.system/plugin-creator/SKILL.md",
+          "score": 0.596
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 8.464,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 23,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "66ccc11e37d70700f00aff18914193f8e6eb8aba7e9a108d351e7a7907fff278",
+      "source_thread_hash": "8389c6dda6ab23280a2c3192af571eb6cd00df262238f0aef09a86f3f9a4df5f"
+    },
+    {
+      "candidates": [
+        {
+          "name": "source-command-business-model",
+          "path": "/Users/speed/.agents/skills/source-command-business-model/SKILL.md",
+          "score": 0.8676
+        },
+        {
+          "name": "source-command-analyze-test",
+          "path": "/Users/speed/.agents/skills/source-command-analyze-test/SKILL.md",
+          "score": 0.8467
+        },
+        {
+          "name": "spec-kit-workflow",
+          "path": "/Users/speed/.agents/skills/spec-kit-workflow/SKILL.md",
+          "score": 0.8444
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 2.801,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 24,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "bef186482902f8edd302a291bd603baab17f17ffb228856b50a2243dde0aa261",
+      "source_thread_hash": "e744681ad41b07f012197e1bb08ec6a6bad2b58e118b18a8b393838540e318ae"
+    },
+    {
+      "candidates": [
+        {
+          "name": "monetization-strategy",
+          "path": "/Users/speed/.agents/skills/monetization-strategy/SKILL.md",
+          "score": 0.6819
+        },
+        {
+          "name": "Presentations",
+          "path": "/Users/speed/.codex/plugins/cache/openai-primary-runtime/presentations/26.909.61513/skills/presentations/SKILL.md",
+          "score": 0.6636
+        },
+        {
+          "name": "prisma-connection-pool-exhaustion",
+          "path": "/Users/speed/.agents/skills/claudeception/examples/prisma-connection-pool-exhaustion/SKILL.md",
+          "score": 0.6487
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 4.737,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 25,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "2f761a44b265fce30779f73198098eef6a7ddd915a4b2831ab4599d0e55b165d",
+      "source_thread_hash": "ca0c982c8602fdc445cc8ec73e4e3257424b07efda49084694fc3daea0749dd7"
+    },
+    {
+      "candidates": [
+        {
+          "name": "taste-skill",
+          "path": "/Users/speed/.codex/skills/taste-skill/SKILL.md",
+          "score": 0.715
+        },
+        {
+          "name": "design-taste-frontend",
+          "path": "/Users/speed/.codex/skills/design-taste-frontend/SKILL.md",
+          "score": 0.5499
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 3.677,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 26,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "aa45e50e2419fd18896420cbcc09fcdfe41f86b5db0cdb5407d480b368f71775",
+      "source_thread_hash": "05bd558ef6a87ceac4655554fcc09077a0e24f15019ecc2b876216477e7b2274"
+    },
+    {
+      "candidates": [],
+      "classification": "natural_review",
+      "decision": "abstain",
+      "duration_ms": 7.876,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 27,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "1b6383756d751a11ee9a38fe6cf212995e390c8ae69c16e8eb8e17d3c43fdd3b",
+      "source_thread_hash": "5f3f957589a51ec02fd65e21073f1e34d9f054a79f4cb02607717e59f7f2bdbb"
+    },
+    {
+      "candidates": [
+        {
+          "name": "skill-creator",
+          "path": "/Users/speed/.codex/skills/.system/skill-creator/SKILL.md",
+          "score": 0.7939
+        },
+        {
+          "name": "sites-building",
+          "path": "/Users/speed/.codex/plugins/cache/openai-curated-remote/sites/0.1.65/skills/sites-building/SKILL.md",
+          "score": 0.6615
+        },
+        {
+          "name": "openclaw-discord-file-upload",
+          "path": "/Users/speed/.agents/skills/openclaw-discord-file-upload/SKILL.md",
+          "score": 0.6398
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 3.568,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 28,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "348a89a78e9a3a93bfa91551799148f66e7a62e14d170fc2b5b0bcfe037bf883",
+      "source_thread_hash": "8187b592a8fdbd925b235b849a4af5102280d84c2f919370eea1932c4f4ba748"
+    },
+    {
+      "candidates": [
+        {
+          "name": "skill-improver",
+          "path": "/Users/speed/.agents/skills/skill-improver/SKILL.md",
+          "score": 0.94
+        },
+        {
+          "name": "pptx",
+          "path": "/Users/speed/.agents/skills/pptx/SKILL.md",
+          "score": 0.9391
+        },
+        {
+          "name": "template-creator",
+          "path": "/Users/speed/.codex/plugins/cache/openai-primary-runtime/template-creator/26.909.61513/skills/template-creator/SKILL.md",
+          "score": 0.9348
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 3.245,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 29,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "13953da2d9494f5bdf5e8dfe81d0038877d1b9409d6a28fbb525eda489f85ff7",
+      "source_thread_hash": "dd362bb88be7fbcc33f704a5d5074a46fb4aedc1b2bf04722ec0f7538dd2a6fc"
+    },
+    {
+      "candidates": [
+        {
+          "name": "last30days",
+          "path": "/Users/speed/.codex/skills/last30days-skill/SKILL.md",
+          "score": 0.7676
+        }
+      ],
+      "classification": "explicit_skill",
+      "decision": "suggest",
+      "duration_ms": 9.927,
+      "explicit_expected_skill": "github",
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 30,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "17ccb632bd57956ea09c5575cb067ac4a8b51d9a1274d3633becd95832a516a8",
+      "source_thread_hash": "7428ac5c495c9afd2e919576b9a2e49550178a9f190731f1ad9bde6b146689f4"
+    },
+    {
+      "candidates": [
+        {
+          "name": "supabase-postgres-best-practices",
+          "path": "/Users/speed/.agents/skills/supabase/references/postgres-best-practices/SKILL.md",
+          "score": 0.86
+        },
+        {
+          "name": "identify-assumptions-new",
+          "path": "/Users/speed/.agents/skills/identify-assumptions-new/SKILL.md",
+          "score": 0.8594
+        },
+        {
+          "name": "vercel-react-best-practices",
+          "path": "/Users/speed/.codex/skills/vercel-react-best-practices/SKILL.md",
+          "score": 0.8284
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 2.797,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 31,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "bb3c5adf37b550479608686b803d5656c3ea94f22188169c88faf4e38cb91b47",
+      "source_thread_hash": "80f538328e56cab9d94b4bc5f4cd92159f6a0fb118913b20547e52de01034fe7"
+    },
+    {
+      "candidates": [],
+      "classification": "natural_review",
+      "decision": "abstain",
+      "duration_ms": 0.005,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 32,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "dc20a68c593ba1b8d5a4dfdda7cf6c733d08da5b41511b9516acb852bb26f096",
+      "source_thread_hash": "258e482d19915a6bff3a4b7ca366c7e9a7726a80d89dd1134ed1c3b753576cfc"
+    },
+    {
+      "candidates": [
+        {
+          "name": "ssh-remote-code-writing-shell-escaping",
+          "path": "/Users/speed/.agents/skills/ssh-remote-code-writing-shell-escaping/SKILL.md",
+          "score": 0.6262
+        },
+        {
+          "name": "sprite-vm-tar-null-byte-corruption",
+          "path": "/Users/speed/.agents/skills/sprite-vm-tar-null-byte-corruption/SKILL.md",
+          "score": 0.605
+        },
+        {
+          "name": "letta-native-tool-call-double-write",
+          "path": "/Users/speed/.agents/skills/letta-native-tool-call-double-write/SKILL.md",
+          "score": 0.5693
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 2.931,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 33,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "5beec34baa88527c4e77abd50e33715689912253533ce17a89969ee4c4175099",
+      "source_thread_hash": "01b818245ea7ec4c4e07243c73e3892c7ebca3e12c03e923941fef9d2fabb128"
+    },
+    {
+      "candidates": [
+        {
+          "name": "bun-binary-reverse-engineering",
+          "path": "/Users/speed/.agents/skills/bun-binary-reverse-engineering/SKILL.md",
+          "score": 0.8071
+        },
+        {
+          "name": "excel-live-control",
+          "path": "/Users/speed/.codex/plugins/cache/openai-primary-runtime/spreadsheets/26.909.61513/skills/excel-live-control/SKILL.md",
+          "score": 0.7875
+        },
+        {
+          "name": "workflow-ship-faster",
+          "path": "/Users/speed/.agents/skills/workflow-ship-faster/SKILL.md",
+          "score": 0.7801
+        }
+      ],
+      "classification": "explicit_skill",
+      "decision": "suggest",
+      "duration_ms": 3.651,
+      "explicit_expected_skill": "github",
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 34,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "24d3d605deba7a927d5ce3fc4eec8f17dba4fb50b5ede4442d52d97d9af541db",
+      "source_thread_hash": "d4f43e9f8c14fd27b3928ee5212b3a009f3f2fbd853259d17d30da3cc661f007"
+    },
+    {
+      "candidates": [],
+      "classification": "natural_review",
+      "decision": "abstain",
+      "duration_ms": 0.009,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 35,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "6e9d1e9cadf84883e352ae56f5f0ea81089d751a4a68efc9be48433c34133574",
+      "source_thread_hash": "4b8d455df98ee7a3d55cf7a95a3026b09139d423d5042eb21e1d449bd801dc48"
+    },
+    {
+      "candidates": [],
+      "classification": "natural_review",
+      "decision": "abstain",
+      "duration_ms": 0.005,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 36,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "5cc7a740803cbedf5c842bd791c4615275ca2a94c446e61fb39d3d2ddafddcb6",
+      "source_thread_hash": "2c296401c786df5d1d4bcfbfc6a3ea59ef9925e70c2d15a40f21c192a878f503"
+    },
+    {
+      "candidates": [
+        {
+          "name": "tool-systematic-debugging",
+          "path": "/Users/speed/.agents/skills/tool-systematic-debugging/SKILL.md",
+          "score": 0.749
+        },
+        {
+          "name": "last30days",
+          "path": "/Users/speed/.codex/skills/last30days-skill/SKILL.md",
+          "score": 0.7177
+        },
+        {
+          "name": "source-command-transform-roadmap",
+          "path": "/Users/speed/.agents/skills/source-command-transform-roadmap/SKILL.md",
+          "score": 0.685
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 2.477,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 37,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "dc7c3875eef26753d9f849330f2f4c49f210127996d7162673ce7de03e042398",
+      "source_thread_hash": "eba01bf71999a9f41f230ea862499ef06b94ad9ccbfc0a308adad57a1bd21d27"
+    },
+    {
+      "candidates": [
+        {
+          "name": "remote-code-archeology",
+          "path": "/Users/speed/.agents/skills/remote-code-archeology/SKILL.md",
+          "score": 0.7775
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 2.867,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 38,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "f307f9d55d22df0b03531917f80f96dffdf78b11b736f030d1f2956135cf8ddc",
+      "source_thread_hash": "202b6835b8df251a94e9fd3e2db919f1e7facf9aaaba9b8ea52dc9e5fc8ecd94"
+    },
+    {
+      "candidates": [],
+      "classification": "natural_review",
+      "decision": "abstain",
+      "duration_ms": 0.006,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 39,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "3734da5af87e6de47a097753e6fc06c0c8e82d7c35545d3135e683e47683c3f0",
+      "source_thread_hash": "60444602f42b81417f29479f577cdc36c5776d4cae62aea7d0b6138b9b961308"
+    },
+    {
+      "candidates": [
+        {
+          "name": "codex-subagent",
+          "path": "/Users/speed/.codex/skills/codex-subagent/SKILL.md",
+          "score": 0.7027
+        },
+        {
+          "name": "build-chatgpt-app",
+          "path": "/Users/speed/.codex/plugins/cache/openai-curated-remote/openai-developers/1.3.0/skills/build-chatgpt-app/SKILL.md",
+          "score": 0.632
+        },
+        {
+          "name": "last30days",
+          "path": "/Users/speed/.codex/skills/last30days-skill/SKILL.md",
+          "score": 0.5728
+        }
+      ],
+      "classification": "explicit_skill",
+      "decision": "suggest",
+      "duration_ms": 15.419,
+      "explicit_expected_skill": "define-goal",
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": "define-goal",
+      "index": 40,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "f3e6d17211ca2818ebd7a6d94a7982389339074f2522b6cfd69716a741f62ff5",
+      "source_thread_hash": "496b84bb4f5559c067099ea9856b11c90ad0ef5dd85e9535d3755bc9839e6593"
+    },
+    {
+      "candidates": [
+        {
+          "name": "build-chatgpt-app",
+          "path": "/Users/speed/.codex/plugins/cache/openai-curated-remote/openai-developers/1.3.0/skills/build-chatgpt-app/SKILL.md",
+          "score": 0.6952
+        },
+        {
+          "name": "codex-subagent",
+          "path": "/Users/speed/.codex/skills/codex-subagent/SKILL.md",
+          "score": 0.6229
+        },
+        {
+          "name": "pptx",
+          "path": "/Users/speed/.agents/skills/pptx/SKILL.md",
+          "score": 0.5896
+        }
+      ],
+      "classification": "explicit_skill",
+      "decision": "suggest",
+      "duration_ms": 53.19,
+      "explicit_expected_skill": "define-goal",
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": "define-goal",
+      "index": 41,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "da0befc4071106c964f97f258c23938b84a76b19ee821dbf42c8683c4b1f1bfd",
+      "source_thread_hash": "544c57c97e57bd87c81adafafc88e5763fa3f955c7907129d9542b0b8808f5b1"
+    },
+    {
+      "candidates": [],
+      "classification": "conversational",
+      "decision": "abstain",
+      "duration_ms": 0.003,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 42,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "e256ee8e7aff6957a781d8328f0f68e26996564c81fa458da59fbca2305138ad",
+      "source_thread_hash": "00d549130842a77028c63a6f76c4d6bc2c7c6cca16f61c81edd3194fdc4e53e4"
+    },
+    {
+      "candidates": [
+        {
+          "name": "Zettel Reflect",
+          "path": "/Users/speed/.codex/skills/zettel-reflect/SKILL.md",
+          "score": 0.892
+        },
+        {
+          "name": "skill-evolution",
+          "path": "/Users/speed/.agents/skills/skill-evolution/SKILL.md",
+          "score": 0.81
+        },
+        {
+          "name": "doc-coauthoring",
+          "path": "/Users/speed/.agents/skills/doc-coauthoring/SKILL.md",
+          "score": 0.7233
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 3.304,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 43,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "037ec63c7f2bd6f7099d64047a151d99c5dcc3437fc90bd4c507de218fe745e7",
+      "source_thread_hash": "0ea93516e085c17f14f95f66dba8e153ecdc0a112cee4ce3b75a07373de60f2f"
+    },
+    {
+      "candidates": [
+        {
+          "name": "codex-router",
+          "path": "/Users/speed/.codex/skills/codex-router/SKILL.md",
+          "score": 0.86
+        },
+        {
+          "name": "build-chatgpt-app",
+          "path": "/Users/speed/.codex/plugins/cache/openai-curated-remote/openai-developers/1.3.0/skills/build-chatgpt-app/SKILL.md",
+          "score": 0.736
+        },
+        {
+          "name": "openai-docs",
+          "path": "/Users/speed/.codex/skills/.system/openai-docs/SKILL.md",
+          "score": 0.7162
+        }
+      ],
+      "classification": "explicit_skill",
+      "decision": "suggest",
+      "duration_ms": 10.603,
+      "explicit_expected_skill": "codex-router",
+      "explicit_top1": true,
+      "explicit_top3": true,
+      "explicitly_invoked_skill": null,
+      "index": 44,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "3ea68bdfbb0ec87301876e8d73bee0f1f6a1f51d105470a2909bc3a5002b739f",
+      "source_thread_hash": "f5f3fbb3156e7be0e36d1f06f7303ce6681504f339d11280d30333712ced099c"
+    },
+    {
+      "candidates": [
+        {
+          "name": "monetization-strategy",
+          "path": "/Users/speed/.agents/skills/monetization-strategy/SKILL.md",
+          "score": 0.715
+        },
+        {
+          "name": "beachhead-segment",
+          "path": "/Users/speed/.agents/skills/beachhead-segment/SKILL.md",
+          "score": 0.5709
+        },
+        {
+          "name": "Presentations",
+          "path": "/Users/speed/.codex/plugins/cache/openai-primary-runtime/presentations/26.909.61513/skills/presentations/SKILL.md",
+          "score": 0.5676
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 5.114,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 45,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "7f76c3f718abb83e675e865bb34f93a839e17b11b27b6082c4b34b05919236df",
+      "source_thread_hash": "327ff3409bec1562f7c2562f2c5a134041789eb323168f7fb59ca1318bb5080d"
+    },
+    {
+      "candidates": [
+        {
+          "name": "chrome-cdp-profile-copy",
+          "path": "/Users/speed/.agents/skills/chrome-cdp-profile-copy/SKILL.md",
+          "score": 0.6713
+        },
+        {
+          "name": "workflow-ship-faster",
+          "path": "/Users/speed/.agents/skills/workflow-ship-faster/SKILL.md",
+          "score": 0.6706
+        },
+        {
+          "name": "jay-profile-cdp",
+          "path": "/Users/speed/.codex/skills/jay-profile-cdp/SKILL.md",
+          "score": 0.6441
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 12.731,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 46,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "db3a3bb3342b2a1b58250d778b0d26f7b9cb1f1e2619643e480ce0e3d536817d",
+      "source_thread_hash": "65e2edfa96e3379386b6314fa9c677ae3d8bc21f591132253eb6ce8a69870b2d"
+    },
+    {
+      "candidates": [
+        {
+          "name": "figma-generate-diagram",
+          "path": "/Users/speed/.codex/plugins/cache/openai-curated-remote/figma/11.0.0/skills/figma-generate-diagram/SKILL.md",
+          "score": 0.7829
+        },
+        {
+          "name": "canvas-design",
+          "path": "/Users/speed/.agents/skills/canvas-design/SKILL.md",
+          "score": 0.7672
+        },
+        {
+          "name": "algorithmic-art",
+          "path": "/Users/speed/.agents/skills/algorithmic-art/SKILL.md",
+          "score": 0.7274
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 7.114,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 47,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "28d13234f90df57f5505c90963a2e0310f1b04cd2f45214698a023c6b36b96d9",
+      "source_thread_hash": "ed41f202c51a047babc62bc4fe46b45b18d12fe7efa941ff3ed4be52d5fd4eba"
+    },
+    {
+      "candidates": [
+        {
+          "name": "voxtral-tool-calling-pipeline",
+          "path": "/Users/speed/.agents/skills/voxtral-tool-calling-pipeline/SKILL.md",
+          "score": 0.6833
+        },
+        {
+          "name": "figma-use-slides",
+          "path": "/Users/speed/.codex/plugins/cache/openai-curated-remote/figma/11.0.0/skills/figma-use-slides/SKILL.md",
+          "score": 0.681
+        },
+        {
+          "name": "vsm-architectural-diagnosis",
+          "path": "/Users/speed/.agents/skills/vsm-architectural-diagnosis/SKILL.md",
+          "score": 0.6194
+        }
+      ],
+      "classification": "natural_review",
+      "decision": "suggest",
+      "duration_ms": 3.146,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 48,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "b6ee0ab46a4cf7df56bf09811bbe9909fc1aa78c42ad26fa54bdb073820be7e0",
+      "source_thread_hash": "db227becdf8bc8852a88f78117ce7036f7743e2539cf7b9a5857abeffbe53fa5"
+    },
+    {
+      "candidates": [],
+      "classification": "natural_review",
+      "decision": "abstain",
+      "duration_ms": 0.007,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 49,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "12b86f1da6c76eddcdbcd44105c70b4da7ad265ec3d6a9db54e01df0d635ceba",
+      "source_thread_hash": "e14e6dcd7f06cd830125ca6c81671e450ec56108b49628e0721ac400f2f031d0"
+    },
+    {
+      "candidates": [],
+      "classification": "natural_review",
+      "decision": "abstain",
+      "duration_ms": 72.31,
+      "explicit_expected_skill": null,
+      "explicit_top1": false,
+      "explicit_top3": false,
+      "explicitly_invoked_skill": null,
+      "index": 50,
+      "invocation_top1": false,
+      "invocation_top3": false,
+      "prompt_sha256": "9b45cfbc4cf6148b719eda883e1764c24c353522f0b1d3f17a46605e77a004ae",
+      "source_thread_hash": "881820f7714eb361faeec295891436efe8846df0d3602c4e9b6b0122dff00ea0"
+    }
+  ],
+  "schema": "codex-skill-router.natural-calibration.v1",
+  "selection_method": "latest non-empty prompt from each thread history, case-insensitive deduplication, synthetic Skill Router verification prompts excluded, first 50 retained",
+  "source": "local /Users/speed/.codex/.codex-global-state.json prompt-history"
+}

@@ -1,0 +1,23 @@
+{
+  "database": "/Users/speed/.codex/skill-router/skills.sqlite3",
+  "event_log": "/Users/speed/.codex/skill-router/events.jsonl",
+  "max_candidates": 3,
+  "minimum_confidence": 0.5,
+  "minimum_term_overlap": 0.34,
+  "candidate_window": 0.18,
+  "roots": [
+    "/Users/speed/.codex/skills",
+    "/Users/speed/.agents/skills",
+    "/Users/speed/.codex/skills/.system",
+    "/Users/speed/.codex/plugins/cache/openai-bundled",
+    "/Users/speed/.codex/plugins/cache/openai-curated/github/11c74d6b/skills",
+    "/Users/speed/.codex/plugins/cache/openai-curated/gmail/11c74d6b/skills",
+    "/Users/speed/.codex/plugins/cache/openai-curated/google-calendar/11c74d6b/skills",
+    "/Users/speed/.codex/plugins/cache/openai-curated-remote/figma/11.0.0/skills",
+    "/Users/speed/.codex/plugins/cache/openai-curated-remote/openai-developers/1.3.0/skills",
+    "/Users/speed/.codex/plugins/cache/openai-curated-remote",
+    "/Users/speed/.codex/plugins/cache/openai-curated-remote/sites/0.1.65/skills",
+    "/Users/speed/.codex/plugins/cache/openai-primary-runtime",
+    "/Users/speed/.codex/plugins/cache/openai-primary-runtime/spreadsheets/26.909.61513/skills"
+  ]
+}
