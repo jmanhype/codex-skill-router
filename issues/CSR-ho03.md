@@ -9,7 +9,7 @@ parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
 updated_at: 2026-09-20T22:33:19Z
-content_hash: "sha256:763505b10662c11258280efb6eae4875b5aec2b3cd98260721fb22507d689aff"
+content_hash: "sha256:bec505a82992cf2558275ab9188cec21e8f6577fd1f2ef34ba9c7c8071c46e99"
 was_blocked_by: [CSR-97nc]
 follows: [CSR-97nc]
 ---
@@ -257,3 +257,6 @@ status: delivered
 - Follows: [[CSR-97nc]]
 
 ## Comments
+
+### 2026-09-20T22:33:19Z speed
+EXPECTED: Required PR conversation resolution and security/reliability review must be clean before acceptance. DELIVERED: PM accepted before accounting for Qodo PR review threads; GitHub remains BLOCKED because 8 threads are unresolved. GAPS: (1) crash after partial sequential replacement; (2) expired Acquired leases cannot recover after abrupt owner death; (3) partial pre-state capture can strand a lease; (4) OSError during stage lacks stable rejection code; (5) malformed audit JSON can bypass AuditAppendError/release; (6) parent-directory swaps after validation can escape live root; (7) successful commit skips Staged -> Committed transition; (8) unsafe recovery lacks terminal audit. FIX: reopen the story, independently validate each finding, repair true defects and add focused regressions, refute false positives with code/tests, rerun required tests/gates/live read-only smoke, update the same PR, and resolve all conversation threads only with evidence. Acceptance is premature until merge state is CLEAN.
