@@ -9,7 +9,7 @@ created_at: 2026-09-20T17:02:44Z
 created_by: speed
 updated_at: 2026-09-20T17:06:20Z
 content_hash: "sha256:f4b50adf8fd778056ced043759d9745072c6d317a265f40c6481d10cff283f53"
-labels: [e2e, capstone, walking-skeleton, delivered, accepted]
+labels: [e2e, capstone, walking-skeleton, accepted]
 assignee: dev-CSR-8jrc
 closed_at: 2026-09-20T17:06:20Z
 close_reason: "Accepted: independently verified repository-local nd/vlt configuration, git-common-dir vault mapping, runtime exclusions, migration documentation, 31-test portable suite, nd doctor/sync, scoped verifier, and green required PR CI. Router behavior is unchanged."
