@@ -5,5 +5,6 @@ __pycache__/
 # Machine-local runtime state, deliberately absent from source control.
 skills.sqlite3
 events.jsonl
+!fixtures/events.jsonl
 feedback.jsonl
 *.sqlite3.tmp
