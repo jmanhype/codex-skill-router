@@ -1,15 +1,16 @@
 ---
 id: CSR-8jrc
 title: "E2e: govern Skill Router through its own Paivot backlog"
-status: open
+status: in_progress
 priority: 0
 type: task
 parent: CSR-knpb
 created_at: 2026-09-20T17:02:44Z
 created_by: speed
-updated_at: 2026-09-20T17:02:44Z
-content_hash: "sha256:1d82466542721f2fb1fafe03491a302ed97c5ae50280f5b253b126c165efb638"
+updated_at: 2026-09-20T17:02:45Z
+content_hash: "sha256:06899a0d94e1f0d81e51f95db75bd949eb0d0b6d9ae5ad146e2a98f4a56f2ac6"
 labels: [e2e, capstone, walking-skeleton]
+assignee: dev-CSR-8jrc
 ---
 
 ## Description
@@ -85,7 +86,8 @@ status: new
 
 
 ## History
-
+- 2026-09-20T17:02:45Z status: open -> in_progress
+- 2026-09-20T17:02:45Z claimed by dev-CSR-8jrc
 
 ## Links
 - Parent: [[CSR-knpb]]
