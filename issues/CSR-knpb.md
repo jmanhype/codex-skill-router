@@ -10,6 +10,7 @@ updated_at: 2026-09-20T17:54:56Z
 content_hash: "sha256:2828cb70f511f0af4af56588b2f70f9f6e21297454d3722e3fe5fd99c48c3ac4"
 closed_at: 2026-09-20T17:54:56Z
 close_reason: "Accepted: repository-local nd vault, synced backlog, accepted governance story, 31/31 tests, green CI, and immutable historical boundary are all verified."
+labels: [accepted]
 ---
 
 ## Description
