@@ -9,7 +9,7 @@ parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
 updated_at: 2026-09-20T22:17:22Z
-content_hash: "sha256:5f0f99aa48c6ee68a1c6b4f05a23d4b940e2261910bcf302bc0422f838bbee70"
+content_hash: "sha256:9c285e7841191967e37e26220b67d0426e7bf092fc89a7fe193201f15202d872"
 was_blocked_by: [CSR-97nc]
 assignee: dev-CSR-ho03
 follows: [CSR-97nc]
@@ -163,6 +163,18 @@ status: new
 
 
 ## Notes
+
+
+## nd_contract
+status: delivered
+
+### evidence
+- Transitioned via pvg story deliver on 2026-09-20.
+
+### proof
+- [ ] Developer evidence block must remain authoritative above this contract.
+
+
 ## Implementation Evidence
 
 Commands run:
