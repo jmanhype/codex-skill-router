@@ -6,8 +6,8 @@ priority: 0
 type: epic
 created_at: 2026-09-20T17:02:44Z
 created_by: speed
-updated_at: 2026-09-20T17:02:44Z
-content_hash: "sha256:7fd11852f38d22ab284b2cf9b3564f7de80318032cb6efd7c5f858b5c66bf742"
+updated_at: 2026-09-20T17:54:56Z
+content_hash: "sha256:4e518ea9a34829c4ad5f8a7ff623285b8725d6c94199d8896e01cec67c866450"
 ---
 
 ## Description
@@ -49,7 +49,8 @@ status: new
 
 
 ## Notes
-
+## PM Decision
+ACCEPTED [2026-09-20]: Independently verified standalone governance at main commit 999132219a0e798c0cf64e2c4cf8093f01f3c7b6. Repository-local Git-common-dir vault is active and synced; portable suite passed 31/31; GitHub CI succeeded; accepted child CSR-8jrc records AC-level evidence; historical wangp-dspy linkage is documented as immutable history only.
 
 ## History
 
