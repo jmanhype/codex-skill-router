@@ -3,11 +3,15 @@
 from __future__ import annotations
 
 import io, json, tempfile, unittest
+import os
 from contextlib import redirect_stdout
 from pathlib import Path
 from typing import Any
 
 import report
+
+
+SKIP_LIVE_ARTIFACTS = os.environ.get("CI") == "true"
 
 
 def event(name: str, duration: int, decision: str, candidates: list[dict[str, Any]]) -> dict[str, Any]:
@@ -61,6 +65,7 @@ class ReportTests(unittest.TestCase):
         self.assertIsNone(invalid["events"]["count"])
         self.assertEqual("invalid", invalid["events"]["state"])
 
+    @unittest.skipIf(SKIP_LIVE_ARTIFACTS, "requires the operator's live router artifacts")
     def test_real_artifacts_support_markdown_and_json_cli_formats(self) -> None:
         json_output = io.StringIO()
         with redirect_stdout(json_output):

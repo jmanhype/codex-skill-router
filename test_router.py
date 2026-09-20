@@ -18,6 +18,7 @@ from unittest import mock
 
 
 HERE = Path(__file__).resolve().parent
+SKIP_LIVE_INDEX = os.environ.get("CI") == "true"
 
 
 def load_module(name: str, path: Path) -> Any:
@@ -146,6 +147,7 @@ description: Plan calendar events and meetings.
                 )
                 self.assertEqual(1.0, candidates[0]["score"])
 
+    @unittest.skipIf(SKIP_LIVE_INDEX, "requires the operator's installed live skill index")
     def test_natural_language_goal_request_is_not_explicit_invocation(self) -> None:
         config = self.hook_module.load_config(self.hook_module.CONFIG_PATH)
         connection = sqlite3.connect(f"file:{config['database']}?mode=ro", uri=True)
@@ -157,6 +159,7 @@ description: Plan calendar events and meetings.
             connection.close()
         self.assertIsNone(resolved)
 
+    @unittest.skipIf(SKIP_LIVE_INDEX, "requires the operator's installed live skill index")
     def test_real_index_explicit_invocation_returns_exact_skill(self) -> None:
         config = self.hook_module.load_config(self.hook_module.CONFIG_PATH)
         _prompt, candidates = self.hook_module.handle_payload(
@@ -184,6 +187,7 @@ description: Plan calendar events and meetings.
         )
         self.assertEqual([], candidates)
 
+    @unittest.skipIf(SKIP_LIVE_INDEX, "requires the operator's installed live skill index")
     def test_live_meta_language_prefers_specific_current_index_skill(self) -> None:
         config = self.hook_module.load_config(self.hook_module.CONFIG_PATH)
         self.assertTrue(Path(str(config["database"])).is_file())
@@ -206,6 +210,7 @@ description: Plan calendar events and meetings.
             names.index("supabase"),
         )
 
+    @unittest.skipIf(SKIP_LIVE_INDEX, "requires the operator's installed live skill index")
     def test_short_domain_prompt_still_returns_current_index_domain_skill(self) -> None:
         config = self.hook_module.load_config(self.hook_module.CONFIG_PATH)
         self.assertTrue(Path(str(config["database"])).is_file())
