@@ -9,10 +9,11 @@ parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
 updated_at: 2026-09-20T20:43:47Z
-content_hash: "sha256:ead1c4446dbe082b2976c478ecc07074912c5c4e30a5c8471f24ce9fa01646e2"
+content_hash: "sha256:b6458aef5b37982f93c392908cc559da5664c5e29c53bfa56b06805d0c396d6f"
 assignee: dev-CSR-97nc
 closed_at: 2026-09-20T20:43:46Z
 close_reason: "Accepted: complete brownfield Machinery design and 30-row hard-TDD oracle with all deterministic gates and CI green."
+led_to: [CSR-ho03]
 ---
 
 ## Description
@@ -185,5 +186,6 @@ status: delivered
 
 ## Links
 - Parent: [[CSR-jg64]]
+- Led to: [[CSR-ho03]]
 
 ## Comments
