@@ -9,9 +9,8 @@ parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
 updated_at: 2026-09-20T22:33:19Z
-content_hash: "sha256:9868a310d164d263f187fb98d1190ddcc0ccfdc919fc01704df2d026496c6a57"
+content_hash: "sha256:763505b10662c11258280efb6eae4875b5aec2b3cd98260721fb22507d689aff"
 was_blocked_by: [CSR-97nc]
-assignee: dev-CSR-ho03
 follows: [CSR-97nc]
 ---
 
@@ -250,6 +249,7 @@ status: delivered
 - 2026-09-20T22:17:22Z status: in_progress -> in_progress
 - 2026-09-20T22:32:34Z status: in_progress -> closed
 - 2026-09-20T22:33:19Z status: closed -> open (reopened)
+- 2026-09-20T22:33:19Z released by speed
 
 ## Links
 - Parent: [[CSR-jg64]]
