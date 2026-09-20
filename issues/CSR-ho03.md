@@ -9,7 +9,7 @@ parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
 updated_at: 2026-09-20T22:32:35Z
-content_hash: "sha256:129449e5e5334b5837d3b664cd2444c086755e0ab7461cc7f8f45647a6a85172"
+content_hash: "sha256:ac16b00df253553a028192e46136ef2a76c0b1164d5f2b690acb6d223b916c6f"
 was_blocked_by: [CSR-97nc]
 assignee: dev-CSR-ho03
 follows: [CSR-97nc]
@@ -165,6 +165,16 @@ status: new
 
 
 ## Notes
+
+
+## nd_contract
+status: accepted
+
+### evidence
+- PM closeout applied via pvg story accept on 2026-09-20.
+
+### proof
+- [x] Story closed after accepted label was applied.
 
 
 ## nd_contract
