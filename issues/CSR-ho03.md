@@ -8,8 +8,8 @@ labels: [security, implementation, capstone, external-integration, accepted]
 parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
-updated_at: 2026-09-20T22:53:27Z
-content_hash: "sha256:3f738d85e289b167b1e02cfac56ac8a175a65a9777552e53816bcb7852c847c6"
+updated_at: 2026-09-20T22:54:26Z
+content_hash: "sha256:2a11e2bcfd04f5f363e124f9a43a4e6b0862f99020f575a010cfd9da91a8d9fd"
 was_blocked_by: [CSR-97nc]
 follows: [CSR-97nc]
 closed_at: 2026-09-20T22:53:27Z
@@ -164,7 +164,49 @@ status: new
 
 
 ## Notes
+## Accepted Oracle Coverage
 
+The accepted implementation story covers all 30 Machinery stable IDs whole-token in `test_artifact_guard.py`:
+
+ARTF-166f17
+ARTF-4519af
+ARTF-8526af
+AUDI-39c46c
+AUDI-da531b
+HASH-08bd15
+HASH-f9bb6c
+LEAS-07f187
+LEAS-60ee49
+LEAS-941578
+LEAS-d276b5
+STAG-8af0e4
+STAG-910d99
+STAG-cfb530
+TXN-07ee49
+TXN-0ce397
+TXN-305eaa
+TXN-3958f3
+TXN-55eac5
+TXN-5fd1c7
+TXN-78feea
+TXN-896a3d
+TXN-92359e
+TXN-bbca31
+TXN-c06d44
+TXN-c5c4ad
+TXN-d8cb41
+TXN-f69729
+TXN-f9d923
+TXN-fe36a0
+
+## nd_contract
+status: accepted
+
+### evidence
+- PM acceptance and PR #3 merge evidence remain authoritative; this note records traceability only.
+
+### proof
+- [x] All 30 oracle transition IDs have passing literal test coverage in commit cbcea9f83865274bdaaee555909aa2447683dee7.
 
 ## nd_contract
 status: accepted
