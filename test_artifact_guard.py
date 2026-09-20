@@ -190,7 +190,16 @@ class GuardIntegrationTests(unittest.TestCase):
         self.assertEqual(self.alpha_hash, hashes["source:alpha.py"])
         self.assertEqual(self.alpha_pre, hashes["pre:alpha.py"])
         self.assertEqual(self.alpha_hash, hashes["post:alpha.py"])
+        self.assertTrue(all(stage.state == "Committed" and stage.installed_sha256 == stage.content_sha256 for stage in transaction.stages.values()))
         self.assertEqual(0, len(list((self.control_root / "leases").glob("*.json"))))
+
+    def test_stage_oserror_uses_stable_rejection_code(self) -> None:
+        transaction = self.new_guard(); os.chmod(self.alpha_source, 0)
+        try:
+            with self.assertRaises(guard.StageFailureError) as raised: transaction.propose(self.declarations()); transaction.stage()
+        finally: os.chmod(self.alpha_source, 0o644)
+        self.assertEqual("STAGE_FAILED", raised.exception.code); self.assertEqual("STAGE_FAILED", transaction.transaction.rejection_code)
+        records = transaction.audit_log.records(); self.assertEqual(1, len(records)); self.assertEqual("STAGE_FAILED", records[0]["rejectionCode"])
 
     def test_stale_pre_hash_releases_lease_and_does_not_mutate_target(self) -> None:
         transaction = self.new_guard(stale=True)
@@ -273,6 +282,41 @@ class GuardIntegrationTests(unittest.TestCase):
         self.assertEqual(b"beta-old\n", self.beta_target.read_bytes())
         self.assertTrue(audit_path.is_dir())
 
+    def test_partial_capture_failure_releases_lease_without_mutating_targets(self) -> None:
+        transaction = self.new_guard(); transaction.propose(self.declarations()); transaction.stage(); transaction.acquire_lease(); os.chmod(self.beta_target, 0)
+        try: result = transaction.commit()
+        finally: os.chmod(self.beta_target, 0o600)
+        self.assertEqual("rolled_back", result.outcome); self.assertEqual("RolledBack", transaction.transaction.state)
+        self.assertEqual(b"alpha-old\n", self.alpha_target.read_bytes()); self.assertEqual(b"beta-old\n", self.beta_target.read_bytes())
+        self.assertEqual(0, len(list((self.control_root / "leases").glob("*.json"))))
+
+    def test_malformed_audit_json_is_audit_failure_and_rolls_back(self) -> None:
+        transaction = self.new_guard(); transaction.propose(self.declarations()); transaction.stage(); transaction.acquire_lease()
+        transaction.audit_log.path.write_text("{not-json\n", encoding="utf-8")
+        with self.assertRaises(guard.AuditAppendError): transaction.audit_log.append("audit-probe", "rejected", {})
+        result = transaction.commit(); self.assertEqual("AUDIT_FAILED", result.rejection_code); self.assertEqual(b"alpha-old\n", self.alpha_target.read_bytes()); self.assertEqual(b"beta-old\n", self.beta_target.read_bytes())
+
+    def test_parent_symlink_swapped_after_validation_cannot_escape_live_root(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="csr-post-escape-") as escape_name:
+            transaction = self.new_guard(); transaction.propose(self.declarations()); transaction.stage(); transaction.acquire_lease()
+            escape = Path(escape_name) / "escape"; real = self.live_root / "real-nested"; os.rename(self.beta_target.parent, real); escape.mkdir(); (self.beta_target.parent).symlink_to(escape, target_is_directory=True)
+            result = transaction.commit()
+            self.assertEqual("COMMIT_FAILED", result.rejection_code); self.assertEqual(b"alpha-old\n", self.alpha_target.read_bytes()); self.assertEqual([], list(escape.iterdir())); self.assertEqual(0, len(list((self.control_root / "leases").glob("*.json"))))
+
+    def test_expired_acquired_partial_replacement_recovers_exact_prestate(self) -> None:
+        transaction = self.new_guard(); transaction.propose(self.declarations()); transaction.stage(); transaction.acquire_lease(); transaction.oracle.dispatch(transaction.transaction, "commit"); transaction._capture_pre_state(); transaction._write_journal()
+        with self.assertRaises(KeyboardInterrupt): transaction._install_all(crash_after=1)
+        self.assertEqual(b"alpha-new\n", self.alpha_target.read_bytes()); self.assertEqual(b"beta-old\n", self.beta_target.read_bytes())
+        lease_files = list((self.control_root / "leases").glob("*.json")); self.assertEqual(1, len(lease_files)); self.assertEqual("Acquired", json.loads(lease_files[0].read_text())["state"])
+        recovered = guard.ArtifactGuard.recover_after_crash(self.live_root, self.source_root, self.control_root, now=float(transaction.lease.expires_at) + 1)
+        self.assertEqual("Recovered", recovered.transaction.state); self.assertEqual(b"alpha-old\n", self.alpha_target.read_bytes()); self.assertEqual(b"beta-old\n", self.beta_target.read_bytes()); self.assertEqual(0, len(list((self.control_root / "leases").glob("*.json"))))
+        self.assertIn("LEASE_ORPHAN_RECOVERED", [record["outcome"] for record in recovered.audit_log.records()])
+
+    def test_expired_acquired_preaction_lease_is_audited_and_cleared(self) -> None:
+        transaction = self.new_guard(); transaction.propose(self.declarations()); transaction.stage(); transaction.acquire_lease()
+        with self.assertRaises(guard.RecoveryError): guard.ArtifactGuard.recover_after_crash(self.live_root, self.source_root, self.control_root, now=float(transaction.lease.expires_at) + 1)
+        self.assertEqual(0, len(list((self.control_root / "leases").glob("*.json")))); self.assertEqual("LEASE_ORPHAN_RECOVERED", transaction.audit_log.records()[-1]["outcome"])
+
     def test_bounded_crash_recovery_reverifies_pre_hashes_and_audits(self) -> None:
         transaction = self.new_guard()
         transaction.propose(self.declarations())
@@ -296,7 +340,7 @@ class GuardIntegrationTests(unittest.TestCase):
         transaction.mark_crash()
         with self.assertRaises(guard.RecoveryError):
             transaction.recover(now=0)
-        self.assertEqual("Rejected", transaction.transaction.state)
+        self.assertEqual("Rejected", transaction.transaction.state); self.assertEqual("UNSAFE_RECOVERY", transaction.audit_log.records()[-1]["rejectionCode"])
         self.assertEqual(1, len(list((self.control_root / "leases").glob("*.json"))))
 
         stale = guard.ArtifactGuard(
