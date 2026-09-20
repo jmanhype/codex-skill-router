@@ -1,16 +1,18 @@
 ---
 id: CSR-8jrc
 title: "E2e: govern Skill Router through its own Paivot backlog"
-status: in_progress
+status: closed
 priority: 0
 type: task
 parent: CSR-knpb
 created_at: 2026-09-20T17:02:44Z
 created_by: speed
 updated_at: 2026-09-20T17:06:20Z
-content_hash: "sha256:e6bdd556fe15d4e9076f8eff4acff0f9f4dfc1942b11f2936b8eeb4dc749ef6f"
+content_hash: "sha256:f4b50adf8fd778056ced043759d9745072c6d317a265f40c6481d10cff283f53"
 labels: [e2e, capstone, walking-skeleton, delivered]
 assignee: dev-CSR-8jrc
+closed_at: 2026-09-20T17:06:20Z
+close_reason: "Accepted: independently verified repository-local nd/vlt configuration, git-common-dir vault mapping, runtime exclusions, migration documentation, 31-test portable suite, nd doctor/sync, scoped verifier, and green required PR CI. Router behavior is unchanged."
 ---
 
 ## Description
@@ -181,6 +183,7 @@ status: delivered
 - 2026-09-20T17:02:45Z status: open -> in_progress
 - 2026-09-20T17:02:45Z claimed by dev-CSR-8jrc
 - 2026-09-20T17:06:01Z status: in_progress -> in_progress
+- 2026-09-20T17:06:20Z status: in_progress -> closed
 
 ## Links
 - Parent: [[CSR-knpb]]
