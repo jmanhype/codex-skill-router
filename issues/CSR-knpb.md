@@ -1,13 +1,15 @@
 ---
 id: CSR-knpb
 title: "Standalone Paivot governance for Codex Skill Router"
-status: open
+status: closed
 priority: 0
 type: epic
 created_at: 2026-09-20T17:02:44Z
 created_by: speed
 updated_at: 2026-09-20T17:54:56Z
-content_hash: "sha256:4e518ea9a34829c4ad5f8a7ff623285b8725d6c94199d8896e01cec67c866450"
+content_hash: "sha256:2828cb70f511f0af4af56588b2f70f9f6e21297454d3722e3fe5fd99c48c3ac4"
+closed_at: 2026-09-20T17:54:56Z
+close_reason: "Accepted: repository-local nd vault, synced backlog, accepted governance story, 31/31 tests, green CI, and immutable historical boundary are all verified."
 ---
 
 ## Description
@@ -53,7 +55,7 @@ status: new
 ACCEPTED [2026-09-20]: Independently verified standalone governance at main commit 999132219a0e798c0cf64e2c4cf8093f01f3c7b6. Repository-local Git-common-dir vault is active and synced; portable suite passed 31/31; GitHub CI succeeded; accepted child CSR-8jrc records AC-level evidence; historical wangp-dspy linkage is documented as immutable history only.
 
 ## History
-
+- 2026-09-20T17:54:56Z status: open -> closed
 
 ## Links
 
