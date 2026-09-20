@@ -8,8 +8,8 @@ labels: [security, implementation, capstone, external-integration, rejected]
 parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
-updated_at: 2026-09-20T22:33:19Z
-content_hash: "sha256:7faa2448d63b4dab4567f646a2ef4dc6c6e8348dec5bef88dec5f62489c03bed"
+updated_at: 2026-09-20T22:51:17Z
+content_hash: "sha256:3898716189b6159498dd4a8685742db7cde5afea403e469c8f796d0196c221bf"
 was_blocked_by: [CSR-97nc]
 follows: [CSR-97nc]
 ---
@@ -162,7 +162,44 @@ status: new
 
 
 ## Notes
+## PM Rework Evidence
 
+Qodo security/reliability review was independently validated; seven findings were fixed and finding #7 was refuted by strengthening an existing assertion.
+
+Commands rerun after rework:
+
+- `/usr/bin/python3 -m unittest -v test_artifact_guard.py` — 48/48 passed.
+- `/usr/bin/python3 -m unittest discover -s . -p 'test_*.py' -q` — 79/79 passed.
+- `machinery check design --impl .` — zero blocking findings.
+- `pvg gates` — PASS with seven pre-existing warnings only.
+- `pvg verify artifact_guard.py test_artifact_guard.py --include-tests --format=text` — PASSED.
+- `git diff --check` — passed.
+- Read-only live-root smoke independently rerun — 15/15 full-root manifest entries byte-identical before/after; 13 eligible hashes all matched; writes=0.
+
+Regressions added/extended for partial replacement recovery, expired-owner leases, partial capture, stable stage failures, malformed audit JSON, post-validation parent swaps, staged-to-committed state assertion, and unsafe-recovery audit.
+
+Final branch diff from main: 798 insertions total across two files, under 900 LOC.
+
+Commit SHA: cbcea9f83865274bdaaee555909aa2447683dee7
+artifact_guard.py SHA-256: 46c9ee2dd7593ff83bef34140d8fe2ab777bfb54b1987f474acc3d50d29f7345
+test_artifact_guard.py SHA-256: 2a973c4790fc15700083ac61383ee7e718b4de1d19137e8cfe313168e60732a1
+
+## nd_contract
+status: delivered
+
+### evidence
+- Rework commit `cbcea9f83865274bdaaee555909aa2447683dee7` and independently rerun local/live-root evidence above.
+
+### proof
+- [x] AC #1: Immutable validated staging.
+- [x] AC #2: Stale-hash rejection.
+- [x] AC #3: Single lease under concurrency.
+- [x] AC #4: Concurrent loser safety.
+- [x] AC #5: Atomic commit and post-hash audit.
+- [x] AC #6: Rollback preservation.
+- [x] AC #7: Safe orphan recovery, including abrupt expired-owner and partial-replacement cases.
+- [x] AC #8: All 30 oracle transitions covered by stable ID.
+- [x] AC #9: Full local gates pass; live root remains unchanged; required PR CI must pass before PM closeout.
 
 ## nd_contract
 status: rejected
