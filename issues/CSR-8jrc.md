@@ -9,7 +9,7 @@ created_at: 2026-09-20T17:02:44Z
 created_by: speed
 updated_at: 2026-09-20T17:06:01Z
 content_hash: "sha256:7432d2360c3d964cc1d084ceb585434f450a9a7210908483a881015642003e7e"
-labels: [e2e, capstone, walking-skeleton]
+labels: [e2e, capstone, walking-skeleton, delivered]
 assignee: dev-CSR-8jrc
 ---
 
