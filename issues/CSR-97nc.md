@@ -8,8 +8,8 @@ labels: [machinery, security, accepted]
 parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
-updated_at: 2026-09-20T20:43:46Z
-content_hash: "sha256:4ded980ec9fddaf2eb369190f0a17812fe83673109fac54f5f7fd3c098dddc9a"
+updated_at: 2026-09-20T20:43:47Z
+content_hash: "sha256:ead1c4446dbe082b2976c478ecc07074912c5c4e30a5c8471f24ce9fa01646e2"
 assignee: dev-CSR-97nc
 closed_at: 2026-09-20T20:43:46Z
 close_reason: "Accepted: complete brownfield Machinery design and 30-row hard-TDD oracle with all deterministic gates and CI green."
@@ -96,6 +96,18 @@ status: new
 
 
 ## Notes
+
+
+## nd_contract
+status: accepted
+
+### evidence
+- PM closeout applied via pvg story accept on 2026-09-20.
+
+### proof
+- [x] Story closed after accepted label was applied.
+
+
 ## PM Decision
 ACCEPTED [2026-09-20]: Independently reviewed all 25 design files, reran Modelith, Machinery gc/g2/g3/gx/gb, oracle generation, backlog lint, and the existing 31-test router suite. PR 2 required CI passed with CLEAN merge state and no review threads. Generated Machinery artifacts account for the story-line overrun; the design scope remained bounded.
 
