@@ -1,16 +1,17 @@
 ---
 id: CSR-97nc
 title: "Machinery: design fail-closed global artifact transaction"
-status: open
+status: in_progress
 priority: 0
 type: task
 labels: [machinery, security]
 parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
-updated_at: 2026-09-20T19:50:05Z
-content_hash: "sha256:2b25e5945e5065a35caf71dda30ac26459535a74aafd76e60acf00a75d71c379"
+updated_at: 2026-09-20T19:51:07Z
+content_hash: "sha256:dfc966a86ee149d27492948735e3050a12a762dafebf4f7fc309de18eb2999aa"
 blocks: [CSR-ho03]
+assignee: dev-CSR-97nc
 ---
 
 ## Description
@@ -98,6 +99,8 @@ status: new
 
 ## History
 - 2026-09-20T19:50:05Z dep_added: blocks CSR-ho03
+- 2026-09-20T19:51:07Z status: open -> in_progress
+- 2026-09-20T19:51:07Z claimed by dev-CSR-97nc
 
 ## Links
 - Parent: [[CSR-jg64]]
