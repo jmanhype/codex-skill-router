@@ -2,6 +2,16 @@
 
 A local-only `UserPromptSubmit` hook that indexes installed `SKILL.md` files and injects compact advisory skill suggestions into Codex.
 
+## Standalone Paivot governance
+
+This repository now owns a repository-local Paivot nd backlog. The live vault is
+stored under the Git common directory at `paivot/nd-vault`, so every Codex
+session and worktree for this repository shares one atomic story queue.
+
+Historical Skill Router production stories remain immutable history in the
+`wangp-dspy` Paivot backlog. New Skill Router work is routed through this
+repository's local backlog instead.
+
 ## Update the index
 
 ```bash

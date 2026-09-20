@@ -1,0 +1,13 @@
+# nd runtime state -- do not track
+issues/
+.nd.yaml
+.vlt.lock
+.trash/
+.guard/
+.piv-loop-state.json
+.piv-loop-snapshot.json
+.dispatcher-state.json
+
+# Volatile project-vault UI/generated settings
+.obsidian/workspace.json
+knowledge/.settings.yaml
