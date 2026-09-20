@@ -8,7 +8,7 @@ parent: CSR-knpb
 created_at: 2026-09-20T17:02:44Z
 created_by: speed
 updated_at: 2026-09-20T17:06:01Z
-content_hash: "sha256:7432d2360c3d964cc1d084ceb585434f450a9a7210908483a881015642003e7e"
+content_hash: "sha256:ba69d82e15f9f6a373f3ba32e9db9635c22ec528aa5897f814e82e1d6c8d8d06"
 labels: [e2e, capstone, walking-skeleton, delivered]
 assignee: dev-CSR-8jrc
 ---
@@ -83,6 +83,18 @@ status: new
 
 
 ## Notes
+
+
+## nd_contract
+status: delivered
+
+### evidence
+- Transitioned via pvg story deliver on 2026-09-20.
+
+### proof
+- [ ] Developer evidence block must remain authoritative above this contract.
+
+
 ## Implementation Evidence
 
 Commands run:
