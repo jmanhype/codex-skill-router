@@ -9,7 +9,7 @@ parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
 updated_at: 2026-09-20T22:51:18Z
-content_hash: "sha256:4ae8cfea7b3c4a811088adf9bec170e843f7a8c6b6272325480ce2ed843ba7cb"
+content_hash: "sha256:8c82bc1e4e881ee4d4b4c0302301a0e5d45e7e29b14144bae08e37d966f70451"
 was_blocked_by: [CSR-97nc]
 follows: [CSR-97nc]
 ---
@@ -162,6 +162,18 @@ status: new
 
 
 ## Notes
+
+
+## nd_contract
+status: delivered
+
+### evidence
+- Transitioned via pvg story deliver on 2026-09-20.
+
+### proof
+- [ ] Developer evidence block must remain authoritative above this contract.
+
+
 ## PM Rework Evidence
 
 Qodo security/reliability review was independently validated; seven findings were fixed and finding #7 was refuted by strengthening an existing assertion.
