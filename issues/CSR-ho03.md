@@ -9,7 +9,7 @@ parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
 updated_at: 2026-09-20T22:33:19Z
-content_hash: "sha256:bec505a82992cf2558275ab9188cec21e8f6577fd1f2ef34ba9c7c8071c46e99"
+content_hash: "sha256:7faa2448d63b4dab4567f646a2ef4dc6c6e8348dec5bef88dec5f62489c03bed"
 was_blocked_by: [CSR-97nc]
 follows: [CSR-97nc]
 ---
@@ -162,6 +162,16 @@ status: new
 
 
 ## Notes
+
+
+## nd_contract
+status: rejected
+
+### evidence
+- PM rejection applied via pvg story reject on 2026-09-20.
+
+### proof
+- [ ] Story requires another developer delivery before it can be accepted.
 
 
 ## nd_contract
