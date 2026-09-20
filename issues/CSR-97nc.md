@@ -8,8 +8,8 @@ labels: [machinery, security, delivered]
 parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
-updated_at: 2026-09-20T20:42:45Z
-content_hash: "sha256:b8694be0057d9d11da55b88b5e34d1c6aaf8d7d5817888cd94fb9532cc21d3c2"
+updated_at: 2026-09-20T20:43:46Z
+content_hash: "sha256:951e695863d9216d485ac90b9e5955744e8ad206db57c4b28cc347a0fd07a3ed"
 blocks: [CSR-ho03]
 assignee: dev-CSR-97nc
 ---
@@ -95,7 +95,8 @@ status: new
 
 
 ## Notes
-
+## PM Decision
+ACCEPTED [2026-09-20]: Independently reviewed all 25 design files, reran Modelith, Machinery gc/g2/g3/gx/gb, oracle generation, backlog lint, and the existing 31-test router suite. PR 2 required CI passed with CLEAN merge state and no review threads. Generated Machinery artifacts account for the story-line overrun; the design scope remained bounded.
 
 ## nd_contract
 status: delivered
