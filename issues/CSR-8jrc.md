@@ -8,7 +8,7 @@ parent: CSR-knpb
 created_at: 2026-09-20T17:02:44Z
 created_by: speed
 updated_at: 2026-09-20T17:06:20Z
-content_hash: "sha256:f4b50adf8fd778056ced043759d9745072c6d317a265f40c6481d10cff283f53"
+content_hash: "sha256:393138fa9ae4b51d194675ea1f814a16e52ae48db71583c9eb24e1272dcf26d2"
 labels: [e2e, capstone, walking-skeleton, accepted]
 assignee: dev-CSR-8jrc
 closed_at: 2026-09-20T17:06:20Z
@@ -85,6 +85,18 @@ status: new
 
 
 ## Notes
+
+
+## nd_contract
+status: accepted
+
+### evidence
+- PM closeout applied via pvg story accept on 2026-09-20.
+
+### proof
+- [x] Story closed after accepted label was applied.
+
+
 ## PM Decision
 ACCEPTED [2026-09-20]: Independently reviewed the 6-file/124-line governance-only diff, reran the 31-test portable suite, whitespace check, scoped verifier, nd root/sync, doctor, and required PR check review. All eight AC are covered by concrete local and GitHub evidence; no router behavior changed.
 
