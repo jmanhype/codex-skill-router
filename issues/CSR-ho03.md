@@ -9,7 +9,8 @@ parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
 updated_at: 2026-09-20T19:50:05Z
-content_hash: "sha256:2fa1cb8c4eebb8ef32eec2c27474fe6fa611a3b7e36b6a128655ae92e0d5af1d"
+content_hash: "sha256:b24598a9dd873dd10e84909091f5b255c396b6c2fd5d5ba7a470d82c67b813ae"
+blocked_by: [CSR-97nc]
 ---
 
 ## Description
@@ -92,9 +93,10 @@ status: new
 
 
 ## History
-
+- 2026-09-20T19:50:05Z dep_added: blocked_by CSR-97nc
 
 ## Links
 - Parent: [[CSR-jg64]]
+- Blocked by: [[CSR-97nc]]
 
 ## Comments

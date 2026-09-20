@@ -9,7 +9,8 @@ parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
 updated_at: 2026-09-20T19:50:05Z
-content_hash: "sha256:7bfdfbacd6d48b8fb38ce95263f539e055f6e2179b3414f341d11fd0afa2a327"
+content_hash: "sha256:2b25e5945e5065a35caf71dda30ac26459535a74aafd76e60acf00a75d71c379"
+blocks: [CSR-ho03]
 ---
 
 ## Description
@@ -96,9 +97,10 @@ status: new
 
 
 ## History
-
+- 2026-09-20T19:50:05Z dep_added: blocks CSR-ho03
 
 ## Links
 - Parent: [[CSR-jg64]]
+- Blocks: [[CSR-ho03]]
 
 ## Comments
