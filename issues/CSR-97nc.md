@@ -4,7 +4,7 @@ title: "Machinery: design fail-closed global artifact transaction"
 status: in_progress
 priority: 0
 type: task
-labels: [machinery, security]
+labels: [machinery, security, delivered]
 parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
