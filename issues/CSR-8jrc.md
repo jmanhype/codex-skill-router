@@ -7,8 +7,8 @@ type: task
 parent: CSR-knpb
 created_at: 2026-09-20T17:02:44Z
 created_by: speed
-updated_at: 2026-09-20T17:06:01Z
-content_hash: "sha256:ba69d82e15f9f6a373f3ba32e9db9635c22ec528aa5897f814e82e1d6c8d8d06"
+updated_at: 2026-09-20T17:06:20Z
+content_hash: "sha256:e6bdd556fe15d4e9076f8eff4acff0f9f4dfc1942b11f2936b8eeb4dc749ef6f"
 labels: [e2e, capstone, walking-skeleton, delivered]
 assignee: dev-CSR-8jrc
 ---
@@ -83,7 +83,22 @@ status: new
 
 
 ## Notes
+## PM Decision
+ACCEPTED [2026-09-20]: Independently reviewed the 6-file/124-line governance-only diff, reran the 31-test portable suite, whitespace check, scoped verifier, nd root/sync, doctor, and required PR check review. All eight AC are covered by concrete local and GitHub evidence; no router behavior changed.
 
+## nd_contract
+status: accepted
+
+### evidence
+- Portable suite: 31/31 passed.
+- pvg verify: 1 file scanned, 0 issues.
+- pvg doctor: all checks passed.
+- PR CI test check: success.
+- Story commit: 01fec23b70120ac09a2ed80ec9e17994643e8c51.
+- Backlog head before acceptance: 7b5a822e481daee5f7aaa243a60b6b285e8d766e.
+
+### proof
+- [x] AC-by-AC independently verified from code, tests, Git, nd, and GitHub PR state.
 
 ## nd_contract
 status: delivered
