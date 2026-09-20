@@ -1,7 +1,7 @@
 ---
 id: CSR-97nc
 title: "Machinery: design fail-closed global artifact transaction"
-status: in_progress
+status: closed
 priority: 0
 type: task
 labels: [machinery, security, delivered]
@@ -9,9 +9,10 @@ parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
 updated_at: 2026-09-20T20:43:46Z
-content_hash: "sha256:951e695863d9216d485ac90b9e5955744e8ad206db57c4b28cc347a0fd07a3ed"
-blocks: [CSR-ho03]
+content_hash: "sha256:4ded980ec9fddaf2eb369190f0a17812fe83673109fac54f5f7fd3c098dddc9a"
 assignee: dev-CSR-97nc
+closed_at: 2026-09-20T20:43:46Z
+close_reason: "Accepted: complete brownfield Machinery design and 30-row hard-TDD oracle with all deterministic gates and CI green."
 ---
 
 ## Description
@@ -167,9 +168,10 @@ status: delivered
 - 2026-09-20T19:51:07Z status: open -> in_progress
 - 2026-09-20T19:51:07Z claimed by dev-CSR-97nc
 - 2026-09-20T20:42:45Z status: in_progress -> in_progress
+- 2026-09-20T20:43:46Z status: in_progress -> closed
+- 2026-09-20T20:43:46Z dep_removed: no_longer_blocks CSR-ho03
 
 ## Links
 - Parent: [[CSR-jg64]]
-- Blocks: [[CSR-ho03]]
 
 ## Comments
