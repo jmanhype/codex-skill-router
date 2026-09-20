@@ -8,8 +8,8 @@ labels: [machinery, security]
 parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
-updated_at: 2026-09-20T19:51:07Z
-content_hash: "sha256:dfc966a86ee149d27492948735e3050a12a762dafebf4f7fc309de18eb2999aa"
+updated_at: 2026-09-20T20:42:45Z
+content_hash: "sha256:25be0583cd54ef2597f4e426d5956885ac5f98e4ba5dfa2b7fd8cbb481e8690e"
 blocks: [CSR-ho03]
 assignee: dev-CSR-97nc
 ---
@@ -95,7 +95,59 @@ status: new
 
 
 ## Notes
+## Implementation Evidence
 
+Commands run:
+
+- `modelith lint design/domain.modelith.yaml` - 0 errors, 0 warnings.
+- `machinery check design --gate gc,g2,g3,gx,gb` - 0 blocking findings.
+- `machinery oracle design/machines` - six fresh oracles, 30 total transition rows.
+- `pvg lint --backlog` - 0 errors.
+- `/usr/bin/python3 -m unittest discover -s . -p 'test_*.py' -q` - 31 tests OK.
+- `git diff --check` and `git diff --cached --check` - pass.
+
+### CI/Test Results
+
+- Gc: 13 invariants declared, 60 preserves references, 13 carried.
+- G2: 3 boundaries, 1 external, contract and dependency rules green.
+- G3: 6 machines, 30 transitions, 6 fresh oracles, 27 named units.
+- Gx: 6 lifecycle entities traced, 13/13 invariants unit-backed.
+- Gb: 3 milestones, 3 DoD-bearing milestones, 7 skeleton citations.
+- Existing router suite: 31/31 passed.
+
+### AC Verification
+
+| AC | Result | Evidence |
+|---|---|---|
+| 1. Python brownfield frame | PASS | DECISIONS.md records language, mode, and live deployment exclusion. |
+| 2. Complete domain entities | PASS | Six lifecycle entities with statuses, attributes, relationships, actions, and scenarios. |
+| 3. Positive/negative invariants | PASS | 13 invariants carried and traced. |
+| 4. Edge/failure scenarios | PASS | Uncontested, stale, concurrent, rollback, recovery, and no-execution scenarios. |
+| 5. Architecture boundaries | PASS | workspace.dsl and Architecture Contract pass G2. |
+| 6. Machine/oracle | PASS | Six machines and six fresh oracles pass G3. |
+| 7. Hard-TDD BUILD | PASS | BUILD.md cites all 30 stable IDs and passes Gb. |
+| 8. Deterministic phase gates | PASS | Modelith plus Machinery gc/g2/g3/gx/gb have zero blocking findings. |
+
+Summary: completed the Machinery design for immutable staging, explicit hashes, exclusive lease, atomic commit/rollback, bounded recovery, and audit evidence without mutating the live root.
+
+Commit SHA: 50f0e8c1303a5f07aad9accba2a8bccf131984af
+
+## nd_contract
+status: delivered
+
+### evidence
+- Required design and router command outputs above.
+- Commit `50f0e8c1303a5f07aad9accba2a8bccf131984af`.
+
+### proof
+- [x] AC #1: Brownfield frame recorded.
+- [x] AC #2: Domain entities and lifecycles complete.
+- [x] AC #3: Positive and negative invariants complete.
+- [x] AC #4: Edge and failure scenarios complete.
+- [x] AC #5: Architecture boundaries and postures complete.
+- [x] AC #6: Machines and oracles complete.
+- [x] AC #7: Hard-TDD BUILD plan complete.
+- [x] AC #8: Deterministic phase gates pass.
 
 ## History
 - 2026-09-20T19:50:05Z dep_added: blocks CSR-ho03
