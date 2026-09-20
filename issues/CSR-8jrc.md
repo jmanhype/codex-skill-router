@@ -7,8 +7,8 @@ type: task
 parent: CSR-knpb
 created_at: 2026-09-20T17:02:44Z
 created_by: speed
-updated_at: 2026-09-20T17:02:45Z
-content_hash: "sha256:06899a0d94e1f0d81e51f95db75bd949eb0d0b6d9ae5ad146e2a98f4a56f2ac6"
+updated_at: 2026-09-20T17:06:01Z
+content_hash: "sha256:1ddd8906dfb05bdc8963fbeb12a10678e31834839df82844e729047ef345b563"
 labels: [e2e, capstone, walking-skeleton]
 assignee: dev-CSR-8jrc
 ---
@@ -83,7 +83,72 @@ status: new
 
 
 ## Notes
+## Implementation Evidence
 
+Commands run:
+
+```bash
+/usr/bin/python3 -m unittest discover -s . -p 'test_*.py' -q
+git diff --check main..HEAD
+pvg verify test_governance.py README.md .paivot/config.yaml .vault/.nd-shared.yaml .vault/.gitignore --format=text
+pvg nd root
+pvg nd sync --status
+pvg doctor
+gh pr view 1 --repo jmanhype/codex-skill-router --json state,mergeStateStatus,statusCheckRollup,url
+```
+
+### CI/Test Results
+
+```text
+portable unittest suite: 31 passed, 0 failed, 0 skipped
+git diff --check: PASS
+pvg verify: PASSED, 1 file scanned, 0 issues
+pvg nd root: repository-local .git/paivot/nd-vault
+pvg nd sync --status: vault in sync; remote 0 ahead, 0 behind
+pvg doctor: all checks passed
+GitHub PR test check: SUCCESS
+GitHub PR merge state: CLEAN
+story diff: 6 files, 124 insertions
+```
+
+### AC Verification
+
+| AC | Result | Evidence |
+|---|---|---|
+| 1. Repository-local live nd vault | PASS | `pvg nd root` resolves to this checkout's `.git/paivot/nd-vault`. |
+| 2. Local nd/vlt providers, no mirrors | PASS | `test_repository_local_paivot_adapters_are_configured` checks active config. |
+| 3. Git-common-dir mapping | PASS | `test_nd_uses_git_common_dir_vault` and `.vault/.nd-shared.yaml`. |
+| 4. Runtime state ignored | PASS | `test_live_vault_runtime_state_is_not_tracked`; no `issues/` directory committed. |
+| 5. Migration documented | PASS | README documents standalone ownership and immutable Wangp history. |
+| 6. Regression tests in portable suite | PASS | GovernanceTests run with the existing unittest discovery command. |
+| 7. Backlog synced | PASS | `pvg nd sync --status` reports 0 ahead/0 behind. |
+| 8. Router behavior unchanged | PASS | Only governance/docs/tests changed; all 31 tests pass and required PR CI is green. |
+
+Summary: established standalone repository-local Paivot governance for Codex Skill Router while preserving router behavior and Wangp's immutable historical stories.
+
+Commit SHA: 01fec23b70120ac09a2ed80ec9e17994643e8c51
+
+Pushed nd/backlog head: c9981dca9ef17321072d5456d7e86111382c9ecb
+
+## nd_contract
+status: delivered
+
+### evidence
+- Portable suite: 31/31 passed.
+- Required GitHub PR test check: success.
+- pvg doctor: all checks passed.
+- Story commit: `01fec23b70120ac09a2ed80ec9e17994643e8c51`.
+- Backlog head: `c9981dca9ef17321072d5456d7e86111382c9ecb`.
+
+### proof
+- [x] AC #1: Repository-local nd vault resolves inside this Git repository.
+- [x] AC #2: Local nd/vlt providers configured without mirrors.
+- [x] AC #3: Git-common-dir shared-vault mapping configured.
+- [x] AC #4: Runtime vault state ignored and absent from Git.
+- [x] AC #5: Standalone migration documented.
+- [x] AC #6: Governance tests integrated into portable suite.
+- [x] AC #7: nd backlog synced with remote.
+- [x] AC #8: Router behavior unchanged and CI green.
 
 ## History
 - 2026-09-20T17:02:45Z status: open -> in_progress
