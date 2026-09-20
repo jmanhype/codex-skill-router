@@ -1,17 +1,19 @@
 ---
 id: CSR-ho03
 title: "Implement hash/lease artifact guard from Machinery oracle"
-status: in_progress
+status: closed
 priority: 0
 type: task
 labels: [security, implementation, capstone, external-integration, delivered]
 parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
-updated_at: 2026-09-20T22:51:18Z
-content_hash: "sha256:8c82bc1e4e881ee4d4b4c0302301a0e5d45e7e29b14144bae08e37d966f70451"
+updated_at: 2026-09-20T22:53:27Z
+content_hash: "sha256:4e2d226e71aef546ca08af2cc8e52745b7e3e41a1527de152d0f2511fd04d154"
 was_blocked_by: [CSR-97nc]
 follows: [CSR-97nc]
+closed_at: 2026-09-20T22:53:27Z
+close_reason: "PM closeout applied after rework: commit cbcea9f83865274bdaaee555909aa2447683dee7 passes 48/48 targeted and 79/79 full tests, Machinery/pvg/verifier/diff gates, and an independently repeated read-only live-root smoke (15/15 manifest entries unchanged; 13 eligible hashes matched; writes=0). Seven Qodo findings were fixed, the remaining finding was refuted with a strengthened state assertion, all eight threads are resolved with evidence, and required PR 3 CI passed at https://github.com/jmanhype/codex-skill-router/actions/runs/35542919033/job/106163706272. PR merge state is CLEAN. Branch diff is 798 insertions with no live-root deployment."
 ---
 
 ## Description
@@ -310,6 +312,7 @@ status: delivered
 - 2026-09-20T22:33:19Z status: closed -> open (reopened)
 - 2026-09-20T22:33:19Z released by speed
 - 2026-09-20T22:51:18Z status: open -> in_progress
+- 2026-09-20T22:53:27Z status: in_progress -> closed
 
 ## Links
 - Parent: [[CSR-jg64]]
