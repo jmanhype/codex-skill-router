@@ -1,20 +1,18 @@
 ---
 id: CSR-ho03
 title: "Implement hash/lease artifact guard from Machinery oracle"
-status: closed
+status: open
 priority: 0
 type: task
 labels: [security, implementation, capstone, external-integration, accepted]
 parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
-updated_at: 2026-09-20T22:32:35Z
-content_hash: "sha256:ac16b00df253553a028192e46136ef2a76c0b1164d5f2b690acb6d223b916c6f"
+updated_at: 2026-09-20T22:33:19Z
+content_hash: "sha256:9868a310d164d263f187fb98d1190ddcc0ccfdc919fc01704df2d026496c6a57"
 was_blocked_by: [CSR-97nc]
 assignee: dev-CSR-ho03
 follows: [CSR-97nc]
-closed_at: 2026-09-20T22:32:34Z
-close_reason: "PM closeout applied 2026-09-20: verified delivered commit 021532ae75c8d962e6e96eef45d7aa51dab57450; 42/42 targeted guard tests, 73/73 full suite, Machinery/pvg/verifier/diff gates passed; read-only live-root smoke matched 13 eligible files and left the complete 15-file manifest unchanged; required PR 3 CI test check completed SUCCESS at https://github.com/jmanhype/codex-skill-router/actions/runs/35541330351/job/106159433039. Scope stayed at 737 changed LOC with no live-root mutation, hook deployment, arbitrary skill execution, or new dependency."
 ---
 
 ## Description
@@ -251,6 +249,7 @@ status: delivered
 - 2026-09-20T20:44:35Z claimed by dev-CSR-ho03
 - 2026-09-20T22:17:22Z status: in_progress -> in_progress
 - 2026-09-20T22:32:34Z status: in_progress -> closed
+- 2026-09-20T22:33:19Z status: closed -> open (reopened)
 
 ## Links
 - Parent: [[CSR-jg64]]
