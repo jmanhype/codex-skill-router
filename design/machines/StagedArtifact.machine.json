@@ -1,0 +1,20 @@
+{
+  "id": "stagedArtifact",
+  "initial": "Sealed",
+  "version": "1.0.0",
+  "_role": "aggregate",
+  "_lifecycle_of": "StagedArtifact",
+  "context": { "stageId": null, "status": "Sealed", "contentSha256": null },
+  "states": {
+    "Sealed": {
+      "on": {
+        "markCommitted": { "target": "Committed", "actions": "bindInstalledHash" },
+        "reject": { "target": "Rejected", "actions": "preserveRejectedBytes" },
+        "retire": { "target": "Retired", "actions": "preserveRetiredBytes" }
+      }
+    },
+    "Rejected": { "type": "final" },
+    "Committed": { "type": "final" },
+    "Retired": { "type": "final" }
+  }
+}

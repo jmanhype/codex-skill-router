@@ -1,0 +1,33 @@
+{
+  "id": "artifact",
+  "initial": "Selected",
+  "version": "1.0.0",
+  "_role": "aggregate",
+  "_lifecycle_of": "Artifact",
+  "_oracle_tag": "ARTF",
+  "context": { "artifactId": null, "status": "Selected", "sourcePath": null, "targetPath": null },
+  "states": {
+    "Selected": {
+      "on": { "stage": { "target": "Staged", "actions": "bindStageIdentity" } },
+      "_ignores": {
+        "markCommitted": "no immutable stage exists",
+        "markReverted": "no committed target exists"
+      }
+    },
+    "Staged": {
+      "on": { "markCommitted": { "target": "Committed", "actions": "bindPostHash" } },
+      "_ignores": {
+        "stage": "the artifact already has one selected immutable stage",
+        "markReverted": "no committed target exists"
+      }
+    },
+    "Committed": {
+      "on": { "markReverted": { "target": "Reverted", "actions": "bindRestoredPreHash" } },
+      "_ignores": {
+        "stage": "stage a new artifact transaction rather than mutating this lifecycle",
+        "markCommitted": "the target is already committed"
+      }
+    },
+    "Reverted": { "type": "final" }
+  }
+}

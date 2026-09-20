@@ -1,0 +1,18 @@
+{
+  "id": "auditRecord",
+  "initial": "Pending",
+  "version": "1.0.0",
+  "_role": "aggregate",
+  "_lifecycle_of": "AuditRecord",
+  "context": { "recordId": null, "status": "Pending", "transactionId": null, "outcome": null },
+  "states": {
+    "Pending": {
+      "on": {
+        "append": { "target": "Recorded", "actions": "appendCanonicalOutcome" },
+        "rejectAppend": { "target": "Rejected", "actions": "forceTransactionRollback" }
+      }
+    },
+    "Recorded": { "type": "final" },
+    "Rejected": { "type": "final" }
+  }
+}
