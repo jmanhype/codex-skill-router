@@ -4,11 +4,11 @@ title: "Implement hash/lease artifact guard from Machinery oracle"
 status: closed
 priority: 0
 type: task
-labels: [security, implementation, capstone, external-integration, delivered]
+labels: [security, implementation, capstone, external-integration, delivered, accepted]
 parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
-updated_at: 2026-09-20T22:32:34Z
+updated_at: 2026-09-20T22:32:35Z
 content_hash: "sha256:129449e5e5334b5837d3b664cd2444c086755e0ab7461cc7f8f45647a6a85172"
 was_blocked_by: [CSR-97nc]
 assignee: dev-CSR-ho03
