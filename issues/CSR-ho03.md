@@ -1,15 +1,15 @@
 ---
 id: CSR-ho03
 title: "Implement hash/lease artifact guard from Machinery oracle"
-status: open
+status: in_progress
 priority: 0
 type: task
 labels: [security, implementation, capstone, external-integration, rejected]
 parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
-updated_at: 2026-09-20T22:51:17Z
-content_hash: "sha256:3898716189b6159498dd4a8685742db7cde5afea403e469c8f796d0196c221bf"
+updated_at: 2026-09-20T22:51:18Z
+content_hash: "sha256:4ae8cfea7b3c4a811088adf9bec170e843f7a8c6b6272325480ce2ed843ba7cb"
 was_blocked_by: [CSR-97nc]
 follows: [CSR-97nc]
 ---
@@ -297,6 +297,7 @@ status: delivered
 - 2026-09-20T22:32:34Z status: in_progress -> closed
 - 2026-09-20T22:33:19Z status: closed -> open (reopened)
 - 2026-09-20T22:33:19Z released by speed
+- 2026-09-20T22:51:18Z status: open -> in_progress
 
 ## Links
 - Parent: [[CSR-jg64]]
