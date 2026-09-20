@@ -4,7 +4,7 @@ title: "Implement hash/lease artifact guard from Machinery oracle"
 status: closed
 priority: 0
 type: task
-labels: [security, implementation, capstone, external-integration, delivered]
+labels: [security, implementation, capstone, external-integration, delivered, accepted]
 parent: CSR-jg64
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
