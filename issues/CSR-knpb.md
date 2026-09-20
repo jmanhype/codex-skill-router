@@ -6,8 +6,8 @@ priority: 0
 type: epic
 created_at: 2026-09-20T17:02:44Z
 created_by: speed
-updated_at: 2026-09-20T17:54:56Z
-content_hash: "sha256:2828cb70f511f0af4af56588b2f70f9f6e21297454d3722e3fe5fd99c48c3ac4"
+updated_at: 2026-09-20T17:54:57Z
+content_hash: "sha256:28e134baa05ac7da62059f7c1a68361fd691b035536c029bae661feea40524bd"
 closed_at: 2026-09-20T17:54:56Z
 close_reason: "Accepted: repository-local nd vault, synced backlog, accepted governance story, 31/31 tests, green CI, and immutable historical boundary are all verified."
 labels: [accepted]
@@ -52,6 +52,18 @@ status: new
 
 
 ## Notes
+
+
+## nd_contract
+status: accepted
+
+### evidence
+- PM closeout applied via pvg story accept on 2026-09-20.
+
+### proof
+- [x] Story closed after accepted label was applied.
+
+
 ## PM Decision
 ACCEPTED [2026-09-20]: Independently verified standalone governance at main commit 999132219a0e798c0cf64e2c4cf8093f01f3c7b6. Repository-local Git-common-dir vault is active and synced; portable suite passed 31/31; GitHub CI succeeded; accepted child CSR-8jrc records AC-level evidence; historical wangp-dspy linkage is documented as immutable history only.
 
