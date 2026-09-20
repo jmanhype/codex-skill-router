@@ -1,0 +1,18 @@
+{
+  "id": "hashExpectation",
+  "initial": "Proposed",
+  "version": "1.0.0",
+  "_role": "aggregate",
+  "_lifecycle_of": "HashExpectation",
+  "context": { "expectationId": null, "status": "Proposed", "expectedSha256": null, "observedSha256": null },
+  "states": {
+    "Proposed": {
+      "on": {
+        "verify": { "target": "Verified", "actions": "bindMatchingObservedHash" },
+        "mismatch": { "target": "Mismatched", "actions": "bindMismatchedObservedHash" }
+      }
+    },
+    "Verified": { "type": "final" },
+    "Mismatched": { "type": "final" }
+  }
+}

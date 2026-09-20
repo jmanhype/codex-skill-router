@@ -1,0 +1,37 @@
+{
+  "id": "lease",
+  "initial": "Free",
+  "version": "1.0.0",
+  "_role": "aggregate",
+  "_lifecycle_of": "Lease",
+  "context": { "leaseId": null, "status": "Free", "ownerToken": null, "expiresAt": null },
+  "states": {
+    "Free": {
+      "on": { "acquire": { "target": "Acquired", "actions": "bindExclusiveOwnerAndExpiry" } },
+      "_ignores": {
+        "release": "no owner exists",
+        "markOrphaned": "no acquired owner exists",
+        "recoverOrphan": "no orphaned owner exists"
+      }
+    },
+    "Acquired": {
+      "on": {
+        "release": { "target": "Released", "actions": "clearOwnerToken" },
+        "markOrphaned": { "target": "Orphaned", "actions": "recordOrphanExpiry" }
+      },
+      "_ignores": {
+        "acquire": "the lease is already exclusively owned",
+        "recoverOrphan": "a live unexpired owner cannot be recovered"
+      }
+    },
+    "Orphaned": {
+      "on": { "recoverOrphan": { "target": "Released", "actions": "auditBoundedRecoveryAndClearOwner" } },
+      "_ignores": {
+        "acquire": "recover the orphan before any new acquisition",
+        "release": "only audited bounded recovery may clear an orphan",
+        "markOrphaned": "the lease is already orphaned"
+      }
+    },
+    "Released": { "type": "final" }
+  }
+}

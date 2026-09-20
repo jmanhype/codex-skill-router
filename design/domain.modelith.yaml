@@ -1,0 +1,422 @@
+kind: DomainModel
+version: v1
+title: Codex Skill Router Global Artifact Guard
+description: A brownfield domain for safely mutating machine-global Skill Router files through immutable staging, expected-hash comparison, one active lease, atomic commit or rollback, and append-only audit evidence.
+glossary:
+  Operator: The single human owner who authorizes a proposed global-artifact transaction and may inspect or replay its audit history.
+  Writer: A Codex session or CLI process that proposes one deterministic global-artifact transaction.
+  GlobalRoot: The operator-owned directory containing deployed Skill Router files, modeled here as `/Users/speed/.codex/skill-router`.
+  CanonicalSource: The repository-owned source file intended to become a deployed global artifact.
+  FailClosed: A rejected transaction that leaves every live artifact byte-for-byte unchanged.
+enums:
+  ArtifactStatus:
+    description: Lifecycle of a canonical source artifact participating in a transaction.
+    values:
+      - name: Selected
+        definition: The source path and bytes have been chosen but not staged.
+      - name: Staged
+        definition: Immutable bytes are sealed under a content address.
+      - name: Committed
+        definition: The staged bytes were atomically installed in the GlobalRoot.
+      - name: Reverted
+        definition: A previous commit was replaced by the recorded pre-state.
+  StagedArtifactStatus:
+    description: Immutability and validation state of sealed bytes.
+    values:
+      - name: Sealed
+        definition: Bytes are content-addressed and no longer mutable by the writer.
+      - name: Rejected
+        definition: Validation failed before commit.
+      - name: Committed
+        definition: The staged bytes were installed.
+      - name: Retired
+        definition: The stage remains immutable evidence but is no longer installable.
+  HashExpectationStatus:
+    description: Comparison state between expected and observed bytes.
+    values:
+      - name: Proposed
+        definition: The expected hash has been declared but not checked.
+      - name: Verified
+        definition: The observed bytes exactly match the expected SHA-256.
+      - name: Mismatched
+        definition: The observed bytes differ or cannot be read.
+  LeaseStatus:
+    description: Exclusive ownership state for one GlobalRoot.
+    values:
+      - name: Free
+        definition: No writer owns the root.
+      - name: Acquired
+        definition: Exactly one writer owns the root.
+      - name: Released
+        definition: The owning writer cleanly released the root.
+      - name: Orphaned
+        definition: A stale acquired lease requires bounded recovery.
+  TransactionStatus:
+    description: Lifecycle of one global-artifact mutation attempt.
+    values:
+      - name: Proposed
+        definition: Inputs and expected hashes are declared.
+      - name: Staged
+        definition: All source bytes are sealed and validated.
+      - name: Leased
+        definition: The transaction owns the sole active root lease.
+      - name: Committing
+        definition: Pre-state backups and atomic replacements are in progress.
+      - name: Committed
+        definition: Every target was atomically installed and post-hashes recorded.
+      - name: RollingBack
+        definition: A failed commit is restoring recorded pre-state.
+      - name: RolledBack
+        definition: Pre-state was restored and the failure audited.
+      - name: Rejected
+        definition: Validation or lease acquisition failed before mutation.
+      - name: Recovered
+        definition: A stale owner was safely resolved without promoting stale bytes.
+      - name: Recovering
+        definition: An operator is resolving an expired lease or incomplete rollback before any new mutation.
+  AuditStatus:
+    description: Durability state of a transaction audit record.
+    values:
+      - name: Pending
+        definition: The transaction outcome is not yet terminal.
+      - name: Recorded
+        definition: A terminal outcome and hashes were appended.
+      - name: Rejected
+        definition: The audit append failed and rollback was forced.
+entities:
+  Artifact:
+    definition: A `CanonicalSource` repository file and the corresponding target path in the GlobalRoot. It is not executable and never carries authority to run a skill.
+    attributes:
+      - name: artifactId
+        type: string
+      - name: sourcePath
+        type: string
+      - name: targetPath
+        type: string
+      - name: status
+        type: ArtifactStatus
+      - name: mode
+        type: string
+    relationships:
+      - entity: StagedArtifact
+        cardinality: 1:n
+        role: immutable staged versions
+        ownership: owned
+      - entity: HashExpectation
+        cardinality: 1:n
+        role: expected source and target hashes
+        ownership: owned
+    actions:
+      - name: select
+        actor: Writer
+        preserves: [artifact-source-pinned]
+        description: Pin a repository-owned source path and GlobalRoot target path.
+      - name: stage
+        actor: Writer
+        preserves: [artifact-source-pinned, stage-content-addressed]
+        description: Bind one sealed content-addressed version to the selected artifact.
+      - name: markCommitted
+        actor: Writer
+        preserves: [post-hash-bound, live-artifact-byte-bound]
+        description: Mark a target committed only after atomic replacement and post-hash verification.
+      - name: markReverted
+        actor: Writer
+        preserves: [rollback-prestate-only]
+        description: Mark a prior commit reverted after restoring its recorded pre-state.
+    invariants:
+      - id: artifact-source-pinned
+        statement: An `Artifact` must pin exact repository source and GlobalRoot target identities before staging.
+      - id: live-artifact-byte-bound
+        statement: A live target byte sequence may change only through an atomic `Transaction` commit or rollback.
+  StagedArtifact:
+    definition: One immutable, content-addressed byte sequence sealed from an `Artifact` source. It is read-only evidence and never becomes executable merely by being staged.
+    attributes:
+      - name: stageId
+        type: string
+      - name: contentSha256
+        type: string
+      - name: bytes
+        type: string
+      - name: sealedAt
+        type: timestamp
+      - name: status
+        type: StagedArtifactStatus
+    relationships:
+      - entity: Artifact
+        cardinality: n:1
+        role: source artifact
+    actions:
+      - name: seal
+        actor: Writer
+        preserves: [stage-immutable, stage-content-addressed]
+        description: Copy source bytes once to a content-addressed immutable stage.
+      - name: reject
+        actor: Writer
+        preserves: [guard-fail-closed]
+        description: Reject malformed, unreadable, or hash-mismatched bytes.
+      - name: retire
+        actor: Writer
+        preserves: [stage-immutable]
+        description: Retire an uninstalled stage while preserving its bytes as evidence.
+      - name: markCommitted
+        actor: Writer
+        preserves: [stage-immutable, post-hash-bound]
+        description: Mark sealed bytes installed after post-hash verification.
+    invariants:
+      - id: stage-immutable
+        statement: A sealed `StagedArtifact` byte sequence must never change after sealing.
+      - id: stage-content-addressed
+        statement: A `StagedArtifact` storage identity must derive from the SHA-256 of its sealed bytes.
+  HashExpectation:
+    definition: A declared SHA-256 for source, pre-commit target, staged bytes, or post-commit target. It is evidence, not permission to bypass comparison.
+    attributes:
+      - name: expectationId
+        type: string
+      - name: role
+        type: string
+      - name: expectedSha256
+        type: string
+      - name: observedSha256
+        type: string
+      - name: status
+        type: HashExpectationStatus
+    relationships:
+      - entity: Artifact
+        cardinality: n:1
+        role: governed artifact
+    actions:
+      - name: verify
+        actor: Writer
+        preserves: [hash-comparison-explicit, stale-hash-rejected]
+        description: Read bytes, calculate SHA-256, and compare the exact expected digest.
+      - name: mismatch
+        actor: Writer
+        preserves: [stale-hash-rejected, guard-fail-closed]
+        description: Record a hash mismatch before any target mutation.
+    invariants:
+      - id: hash-comparison-explicit
+        statement: Every required byte transition must have an explicit SHA-256 expectation and observed value.
+      - id: stale-hash-rejected
+        statement: A transaction must be rejected when an observed pre-state hash differs from its declared expected hash.
+  Lease:
+    definition: Exclusive, bounded ownership of one GlobalRoot for transaction verification and commit. It does not authorize arbitrary filesystem work outside declared targets.
+    attributes:
+      - name: leaseId
+        type: string
+      - name: rootPath
+        type: string
+      - name: ownerToken
+        type: string
+      - name: acquiredAt
+        type: timestamp
+      - name: expiresAt
+        type: timestamp
+      - name: status
+        type: LeaseStatus
+    actions:
+      - name: acquire
+        actor: Writer
+        preserves: [lease-exclusive]
+        description: Atomically acquire the only active lease for the root.
+      - name: release
+        actor: Writer
+        preserves: [lease-exclusive, audit-complete]
+        description: Release a cleanly terminal lease.
+      - name: recoverOrphan
+        actor: Operator
+        preserves: [orphan-recovery-bounded, stale-hash-rejected]
+        description: Expire a stale owner and allow a fresh transaction to reverify current hashes.
+      - name: markOrphaned
+        actor: Writer
+        preserves: [orphan-recovery-bounded]
+        description: Mark an abruptly abandoned lease orphaned.
+    invariants:
+      - id: lease-exclusive
+        statement: A `GlobalRoot` may have at most one non-expired acquired `Lease`.
+      - id: orphan-recovery-bounded
+        statement: An orphaned `Lease` may be recovered only after its declared expiry and only through an audited recovery action.
+  Transaction:
+    definition: One all-or-nothing `FailClosed` mutation attempt over a declared artifact set. It owns staging, lease, commit, rollback, and terminal audit coordination.
+    attributes:
+      - name: transactionId
+        type: string
+      - name: status
+        type: TransactionStatus
+      - name: rootPath
+        type: string
+      - name: rejectionCode
+        type: string
+      - name: startedAt
+        type: timestamp
+      - name: endedAt
+        type: timestamp
+    relationships:
+      - entity: Artifact
+        cardinality: 1:n
+        role: declared artifact set
+        ownership: owned
+      - entity: Lease
+        cardinality: 1:1
+        role: exclusive root lease
+        ownership: owned
+      - entity: AuditRecord
+        cardinality: 1:1
+        role: terminal audit outcome
+        ownership: owned
+    actions:
+      - name: propose
+        actor: Writer
+        preserves: [artifact-source-pinned, hash-comparison-explicit]
+        description: Declare the complete target set and every required hash expectation.
+      - name: stage
+        actor: Writer
+        preserves: [stage-immutable, stage-content-addressed]
+        description: Seal and verify every source artifact before requesting a lease.
+      - name: acquireLease
+        actor: Writer
+        preserves: [lease-exclusive, stale-hash-rejected]
+        description: Verify live pre-hashes and atomically acquire the sole root lease.
+      - name: commit
+        actor: Writer
+        preserves: [commit-atomic, rollback-prestate-only, post-hash-bound]
+        description: Back up pre-state, atomically replace targets, verify post-hashes, and append audit evidence.
+      - name: rollback
+        actor: Writer
+        preserves: [rollback-prestate-only, guard-fail-closed]
+        description: Restore only the recorded pre-state after commit or audit failure.
+      - name: reject
+        actor: Writer
+        preserves: [guard-fail-closed]
+        description: Terminalize any validation, contention, or hash mismatch without target mutation.
+      - name: recover
+        actor: Operator
+        preserves: [orphan-recovery-bounded]
+        description: Resolve an orphaned lease while forcing a fresh pre-hash verification.
+      - name: prepareRecovery
+        actor: Operator
+        preserves: [orphan-recovery-bounded, guard-fail-closed]
+        description: Pause an expired or failed transaction until bounded recovery completes.
+      - name: leaseDenied
+        actor: Writer
+        preserves: [lease-exclusive, guard-fail-closed]
+        description: Record that another writer owns the root lease.
+      - name: staleHash
+        actor: Writer
+        preserves: [stale-hash-rejected, guard-fail-closed]
+        description: Record a live pre-state hash mismatch after lease verification.
+      - name: commitAndAuditSucceeded
+        actor: Writer
+        preserves: [commit-atomic, post-hash-bound, audit-complete]
+        description: Complete the terminal commit and durable audit record.
+      - name: commitFailed
+        actor: Writer
+        preserves: [commit-atomic, rollback-prestate-only]
+        description: Begin rollback after replacement or post-hash failure.
+      - name: auditFailed
+        actor: Writer
+        preserves: [audit-complete, rollback-prestate-only]
+        description: Begin rollback because the terminal audit record cannot be appended.
+      - name: rollbackSucceeded
+        actor: Writer
+        preserves: [rollback-prestate-only, audit-complete]
+        description: Complete and audit restoration of captured pre-state.
+      - name: rollbackFailed
+        actor: Writer
+        preserves: [guard-fail-closed, orphan-recovery-bounded]
+        description: Require bounded operator recovery after rollback failure.
+      - name: crash
+        actor: Writer
+        preserves: [orphan-recovery-bounded, guard-fail-closed]
+        description: Mark an in-flight owner orphaned without allowing stale promotion.
+      - name: recoverySucceeded
+        actor: Operator
+        preserves: [orphan-recovery-bounded, stale-hash-rejected, audit-complete]
+        description: Complete recovery after fresh hash and audit evidence reconcile.
+    invariants:
+      - id: guard-fail-closed
+        statement: Every invalid, contested, stale, or partially failed `Transaction` must leave all live target bytes unchanged.
+      - id: commit-atomic
+        statement: A commit may expose either the complete declared post-state or the complete recorded pre-state, never a partial set.
+      - id: rollback-prestate-only
+        statement: Rollback may restore only bytes captured by that transaction before mutation.
+      - id: post-hash-bound
+        statement: A committed terminal record must bind every installed target to its observed post-commit SHA-256.
+  AuditRecord:
+    definition: The append-only terminal record for a transaction, including all hashes, owner, rejection or success outcome, and rollback evidence.
+    attributes:
+      - name: recordId
+        type: string
+      - name: transactionId
+        type: string
+      - name: outcome
+        type: string
+      - name: preStateHashes
+        type: string
+      - name: postStateHashes
+        type: string
+      - name: status
+        type: AuditStatus
+    relationships:
+      - entity: Transaction
+        cardinality: 1:1
+        role: audited transaction
+    actions:
+      - name: append
+        actor: Writer
+        preserves: [audit-complete]
+        description: Append one terminal outcome with canonical JSON and complete hash evidence.
+      - name: rejectAppend
+        actor: Writer
+        preserves: [audit-complete, guard-fail-closed]
+        description: Force rollback when the terminal audit record cannot be appended.
+    invariants:
+      - id: audit-complete
+        statement: Every terminal `Transaction` must have exactly one durable `AuditRecord` containing actor, target, rejection code, and all relevant hashes.
+scenarios:
+  - name: Uncontested verified commit
+    actors: [Writer, Operator]
+    steps:
+      - A `Writer` proposes one `Artifact` with source and target hashes.
+      - The `Transaction` seals and verifies immutable bytes.
+      - The `Lease` is acquired after the target pre-hash matches.
+      - The `Transaction` commits atomically and verifies post-hashes.
+      - The `AuditRecord` records success and releases the `Lease`.
+    invariants_touched: [stage-immutable, stale-hash-rejected, commit-atomic, post-hash-bound, audit-complete]
+  - name: Stale live hash loses before mutation
+    actors: [Writer]
+    steps:
+      - A `Transaction` stages correct source bytes.
+      - Another actor changes the live target before lease acquisition.
+      - The observed pre-hash differs from the `HashExpectation`.
+      - The `Transaction` is rejected without modifying the target.
+    invariants_touched: [stale-hash-rejected, guard-fail-closed, audit-complete]
+  - name: Concurrent writers have one winner
+    actors: [Writer, Writer]
+    steps:
+      - Two `Writer` processes propose transactions for one `GlobalRoot`.
+      - The first `Lease` acquisition succeeds.
+      - The second `Lease` acquisition fails.
+      - The losing `Transaction` is rejected while its sealed bytes remain evidence.
+    invariants_touched: [lease-exclusive, guard-fail-closed, stage-immutable]
+  - name: Commit failure restores pre-state
+    actors: [Writer]
+    steps:
+      - A `Transaction` acquires the lease and begins commit.
+      - A target replacement or post-hash check fails.
+      - The `Transaction` rolls back every target from its captured pre-state.
+      - The failure and rollback are audited.
+    invariants_touched: [commit-atomic, rollback-prestate-only, guard-fail-closed, audit-complete]
+  - name: Orphan lease recovery forces reverification
+    actors: [Operator, Writer]
+    steps:
+      - A crashed `Writer` leaves an expired acquired `Lease`.
+      - The `Operator` records bounded orphan recovery.
+      - A new `Transaction` must rehash current live bytes before staging or commit.
+    invariants_touched: [orphan-recovery-bounded, stale-hash-rejected, audit-complete]
+  - name: No execution authority
+    actors: [Writer, Operator]
+    steps:
+      - A `StagedArtifact` names a Python source file.
+      - The guard seals, compares, installs, and audits bytes only.
+      - No skill is selected or executed by the transaction.
+    invariants_touched: [stage-immutable, live-artifact-byte-bound]

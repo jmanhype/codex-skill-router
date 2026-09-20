@@ -1,0 +1,139 @@
+{
+  "id": "artifactTransaction",
+  "initial": "Proposed",
+  "version": "1.0.0",
+  "_comment": "ArtifactTransaction placement: one guarded mutation aggregate per declared GlobalRoot target set. Persistence: content-addressed stages, captured pre-state, root lease, and append-only audit. Concurrency: one active root lease; losers fail closed.",
+  "_role": "aggregate",
+  "_lifecycle_of": "Transaction",
+  "_oracle_tag": "TXN",
+  "context": {
+    "transactionId": null,
+    "rootPath": null,
+    "status": "Proposed",
+    "artifactIds": [],
+    "leaseId": null,
+    "rejectionCode": null,
+    "startedAt": null,
+    "endedAt": null
+  },
+  "states": {
+    "Proposed": {
+      "on": {
+        "stage": { "target": "Staged", "actions": "sealAndVerifyAllSources" },
+        "reject": { "target": "Rejected", "actions": "appendRejectionAudit" }
+      },
+      "_ignores": {
+        "acquireLease": "source bytes have not been sealed and verified",
+        "leaseDenied": "lease acquisition has not been attempted",
+        "staleHash": "live hashes are checked during lease acquisition",
+        "commit": "the root lease is not owned",
+        "commitAndAuditSucceeded": "commit has not started",
+        "commitFailed": "commit has not started",
+        "auditFailed": "commit has not started",
+        "rollbackSucceeded": "no restoration is active",
+        "rollbackFailed": "no restoration is active",
+        "crash": "no lease or target mutation exists to recover",
+        "recoverySucceeded": "no expired lease or incomplete rollback exists"
+      }
+    },
+    "Staged": {
+      "on": {
+        "acquireLease": { "target": "Leased", "actions": "verifyPreHashesAndAcquireLease" },
+        "leaseDenied": { "target": "Rejected", "actions": "recordLeaseContention" },
+        "reject": { "target": "Rejected", "actions": "appendRejectionAudit" }
+      },
+      "_ignores": {
+        "stage": "source bytes are already sealed and verified",
+        "staleHash": "live hashes are checked while acquiring the lease",
+        "commit": "the root lease is not owned",
+        "commitAndAuditSucceeded": "commit has not started",
+        "commitFailed": "commit has not started",
+        "auditFailed": "commit has not started",
+        "rollbackSucceeded": "no restoration is active",
+        "rollbackFailed": "no restoration is active",
+        "crash": "no lease or target mutation exists to recover",
+        "recoverySucceeded": "no expired lease or incomplete rollback exists"
+      }
+    },
+    "Leased": {
+      "on": {
+        "commit": { "target": "Committing", "actions": "capturePreStateAndPrepareAtomicReplacements" },
+        "staleHash": { "target": "Rejected", "actions": "releaseLeaseAndRecordStaleHash" },
+        "crash": { "target": "Recovering", "actions": "markLeaseOrphaned" }
+      },
+      "_ignores": {
+        "acquireLease": "the aggregate already owns the only active lease for this root",
+        "stage": "source bytes are already immutable",
+        "reject": "a leased transaction commits or explicitly records stale-hash rejection",
+        "leaseDenied": "this aggregate already acquired the root lease",
+        "commitAndAuditSucceeded": "commit has not started",
+        "commitFailed": "commit has not started",
+        "auditFailed": "commit has not started",
+        "rollbackSucceeded": "no restoration is active",
+        "rollbackFailed": "no restoration is active",
+        "recoverySucceeded": "the lease has not expired and no incomplete recovery exists"
+      }
+    },
+    "Committing": {
+      "on": {
+        "commitAndAuditSucceeded": { "target": "Committed", "actions": "verifyPostHashesAppendAuditAndReleaseLease" },
+        "commitFailed": { "target": "RollingBack", "actions": "restoreCapturedPreState" },
+        "auditFailed": { "target": "RollingBack", "actions": "restoreCapturedPreState" },
+        "crash": { "target": "Recovering", "actions": "markLeaseOrphaned" }
+      },
+      "_ignores": {
+        "stage": "source bytes are already immutable before commit",
+        "reject": "an active commit follows deterministic commit or rollback outcomes",
+        "acquireLease": "the aggregate already owns the active root lease",
+        "leaseDenied": "the aggregate already owns the active root lease",
+        "staleHash": "pre-hashes were verified immediately before commit",
+        "commit": "atomic replacement is already in progress",
+        "rollbackSucceeded": "rollback starts only after commit or audit failure",
+        "rollbackFailed": "rollback starts only after commit or audit failure",
+        "recoverySucceeded": "operator recovery starts only after an expired owner or failed rollback"
+      }
+    },
+    "RollingBack": {
+      "on": {
+        "rollbackSucceeded": { "target": "RolledBack", "actions": "appendRollbackAuditAndReleaseLease" },
+        "rollbackFailed": { "target": "Recovering", "actions": "retainPreStateAndMarkOperatorRecoveryRequired" }
+      },
+      "_ignores": {
+        "stage": "rollback uses only captured pre-state bytes",
+        "reject": "rollback has deterministic success or operator-recovery outcomes",
+        "acquireLease": "the aggregate already owns the active root lease",
+        "leaseDenied": "the aggregate already owns the active root lease",
+        "staleHash": "captured pre-state is the sole restoration authority",
+        "commit": "a failed commit must not retry inside the same transaction",
+        "commitAndAuditSucceeded": "commit already failed",
+        "commitFailed": "commit already failed",
+        "auditFailed": "rollback is the active operation",
+        "crash": "rollback failure, rather than ordinary crash, determines recovery",
+        "recoverySucceeded": "operator recovery starts only after rollback failure"
+      }
+    },
+    "Recovering": {
+      "on": {
+        "recoverySucceeded": { "target": "Recovered", "actions": "verifyPreStateAppendRecoveryAuditAndReleaseLease" },
+        "reject": { "target": "Rejected", "actions": "appendUnsafeRecoveryRejection" }
+      },
+      "_ignores": {
+        "stage": "recovery never introduces new bytes",
+        "acquireLease": "an existing lease must be recovered or released before new acquisition",
+        "leaseDenied": "recovery resolves the existing lease rather than retrying acquisition",
+        "staleHash": "recovery verifies explicit current hashes before terminal success and cannot cure stale bytes",
+        "commit": "a recovering transaction must never install bytes without a fresh pre-hash verification",
+        "commitAndAuditSucceeded": "no commit is active",
+        "commitFailed": "no commit is active",
+        "auditFailed": "no terminal transaction audit append is active",
+        "rollbackSucceeded": "the failed rollback requires operator reconciliation first",
+        "rollbackFailed": "rollback already failed and recovery is active",
+        "crash": "recovery is already the safe state for an expired owner"
+      }
+    },
+    "Committed": { "type": "final" },
+    "RolledBack": { "type": "final" },
+    "Rejected": { "type": "final" },
+    "Recovered": { "type": "final" }
+  }
+}
