@@ -1,14 +1,16 @@
 ---
 id: CSR-jg64
 title: "Guard machine-global Skill Router artifacts"
-status: open
+status: closed
 priority: 0
 type: epic
 labels: [security, machinery]
 created_at: 2026-09-20T19:50:05Z
 created_by: speed
-updated_at: 2026-09-20T19:50:05Z
-content_hash: "sha256:21e3bf3a45ab73fe46dbacabfb68373520dc2a58c15a9e4cb2633a526a81a149"
+updated_at: 2026-09-21T00:45:03Z
+content_hash: "sha256:d6e0287f3f9c59c0a1b295940752a7f15f32cf0cad1a10f2dac8438c5a38b280"
+closed_at: 2026-09-21T00:45:03Z
+close_reason: "Epic complete: both children accepted. CSR-97nc (Machinery fail-closed artifact-transaction design, PR #2) and CSR-ho03 (hash/lease artifact guard, PR #3 squash 2cf38c58) closed with recorded evidence. Guard verified at 48 targeted tests (30 subtests) covering concurrency, mismatch, stale-hash/lease and rollback, plus an independently repeated read-only live-root smoke with writes=0 and an unchanged live-root hash. Required CI green on main; no live-hook deployment."
 ---
 
 ## Description
@@ -46,7 +48,7 @@ status: new
 
 
 ## History
-
+- 2026-09-21T00:45:03Z status: open -> closed
 
 ## Links
 
